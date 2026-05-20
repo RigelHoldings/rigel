@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="rigel.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Rigel Enterprises </title>
+	<link rel="icon" type="image.jpg" href="Images/Rigellogoicon.jpg">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+	integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"/> <!--Link For icons -->
+
+</head>
+
+<body>
+<!---------------------------------------Header Starts From Here------------------------------------------------>
+<header class="header">
+  <nav class="navbar">
+
+    <a href="rigelhome.html" class="logo">
+      <img src="Images/Rigellogowhite3.jpg" alt="Rigel Logo">
+    </a>
+
+    <!-- Hamburger Button -->
+    <button class="hamburger" id="hamburger">
+      ☲
+    </button>
+
+    <!-- Navigation Links -->
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="rigelhome.html">Rigel</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+
+  </nav>
+</header>
+
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+</script>
+
+
+
+<!---------------------------------------Header Ends Here------------------------------------------------>
+<!---------------------------------------Box 1 Starts From Here------------------------------------------------>
+<div class="si1b">
+<h1 id="h1" >Our Services</h1>
+</div>
+<!---------------------------------------Box 1 Ends Here------------------------------------------------>
+<!---------------------------------------Box 2 Starts From Here------------------------------------------------>
+<div class="b2s">
+<div><h1 id="h1b">These are the services<br>we offer that cost next to<br>Nothing.</h1>
+<br><p id="p1" >Choose The service you want and Our Team will get in touch with you regarding the Documantation.</p>
+</div></div>
+<!---------------------------------------Box 2 Ends Here------------------------------------------------>
+<!---------------------------------------Box 3 Starts From Here------------------------------------------------>
+ <div class="box2">
+ <div class="scontainer">
+	 <div class="sbox" ><a class="ssbox" href="dropshipping.html"><br><h2 id="sbox1">Dropshipping Service</h2><br><p id="sbox2">Truely Top Notch</p>
+			 <br><button id="bs">Start Now</button></a> </div>
+	 <div class="sbox" ><a class="ssbox" href="gstregistration.html"><br><h2 id="sbox1">Gst Registration</h2><br><p id="sbox2">At Just ₹999*</p>
+			 <br><button id="bs">Start Registration</button></a> </div>
+	 <div class="sbox" ><a class="ssbox" ><br><h2 id="sbox1">Company Registration</h2><br><p id="sbox2">Starts from just ₹799* (Govt Fees Extra)</p>
+			 <br><button id="bs">Cooming Soon</button></a> </div>
+	 <div class="sbox" ><a class="ssbox" href="msmeregistration.html"><br><h2 id="sbox1">MSME Registration</h2><br><p id="sbox2">At Just ₹99*</p>
+			 <br><button id="bs">Start Registration</button></a> </div>
+	 <div class="sbox" ><a class="ssbox" href="socialmediamarketing.html"><br><h2 id="sbox1">Social Media Marketing</h2><br><p id="sbox2">Starts from just ₹799*</p>
+			 <br><button id="bs">Start Now</button></a> </div>
+	 <div class="sbox" ><a class="ssbox" href="fssailicense.html"><br><h2 id="sbox1">FSSAI License</h2><br><p id="sbox2">Starts from Just ₹249*</p>
+			 <br><button id="bs">Start Registration</button></a> </div>
+	 <div class="sbox" ><a class="ssbox" href="pancardservice.html"><br><h2 id="sbox1">Pan card Registration and  Updation</h2><br><p id="sbox2">From Just ₹199*</p>
+			 <br><button id="bs">Start Process</button></a> </div>
+	 <div class="sbox" ><a class="ssbox" href="logodesign.html"><br><h2 id="sbox1">LOGO Design</h2><br><p id="sbox2">Starts from Just ₹799*</p>
+			 <br><button id="bs">Get your Logo</button></a> </div>
+	 <div class="sbox" ><a class="ssbox" href="sellererg.html"><br><h2 id="sbox1">Ecommerce Seller registration</h2><br><p id="sbox2">At Just ₹199*</p>
+			 <br><button id="bs">Start Registration</button></a> </div>
+	 <div class="sbox" ><a class="ssbox" href="productlisting.html"><br><h2 id="sbox1">Product Listing on Ecommerce Website</h2><br><p id="sbox2">Start from Just ₹5* per listing</p>
+			 <br><button id="bs">Start Listing</button></a> </div>
+ </div>
+ <br><br><br>
+ 
+ </div>
+<!---------------------------------------Box 3 Ends Here------------------------------------------------>
+<!---------------------------------------Box 4 Starts From Here------------------------------------------------>
+<div class="b4s">
+	<div class="b4ss">"GOOD WORK<br>AIN'T CHEAP,<br>CHEAP WORK<br>AIN'T GOOD"</div>
+</div> 
+<!---------------------------------------Box 4 Ends Here------------------------------------------------>
+<!---------------------------------------Box 5 Starts Here------------------------------------------------>
+<div class="b5s">
+	<div id="p2">Alteration in Prices are Subject to Changes in Market Costs.<br> *All Prices are Tax Inclusive.</div>
+</div> 
+<!---------------------------------------Box 5 Ends Here------------------------------------------------>
+</body>
+<!---------------------------------------Back To Top Button Starts Here------------------------------------------------>
+<button id="backToTop">⇧</button>
+
+<script>
+  const backToTop = document.getElementById("backToTop");
+
+  window.addEventListener("scroll", () => {
+
+    // total scrollable height
+    const scrollHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+    // current scroll %
+    const scrollPercent =
+      (window.scrollY / scrollHeight) * 100;
+
+    // show button after 30%
+    if (scrollPercent > 30 && window.innerWidth <= 768) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+  });
+
+  // smooth scroll to top
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+
+<!---------------------------------------Back To Top Button Ends Here------------------------------------------------>
+<!---------------------------------------Footer Starts From Here------------------------------------------------>
+<footer>
+<br><br><br>
+<a id="f1" href="rigelhome.html">Rigel Enterprises</a><br><br><br>
+	<a id="f2"  href="mailto:enterprisesrigel@gmail.com">enterprisesrigel@gmail.com</a><br><br>
+	&copy;2020-2026 by Drall Induatries
+<br><br><br>
+</footer>
+</body>
+</html>
+	
+

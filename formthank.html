@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You | Rigel</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+
+      background:white;
+      font-family:Arial, sans-serif;
+      text-align:center;
+
+      overflow:hidden;
+    }
+
+    .container{
+      animation: fadeIn 1s ease;
+    }
+
+    .checkmark{
+      font-size:70px;
+      color:green;
+      margin-bottom:20px;
+
+      animation: pop 0.5s ease;
+    }
+
+    h1{
+      font-size:40px;
+      margin-bottom:10px;
+      color:#111;
+    }
+
+    p{
+      font-size:16px;
+      color:#555;
+    }
+
+    .loader{
+      margin-top:30px;
+      width:50px;
+      height:50px;
+
+      border:4px solid #ddd;
+      border-top:4px solid black;
+      border-radius:50%;
+
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin{
+      100%{
+        transform:rotate(360deg);
+      }
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes pop{
+      0%{
+        transform:scale(0);
+      }
+
+      100%{
+        transform:scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="checkmark">✓</div>
+
+    <h1>Thank You!</h1>
+
+    <p>Your form has been submitted successfully.
+    Our Team Will get in touch Within 48 Hours.</p>
+
+    <div class="loader"></div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      window.location.href = "rigelhome.html";
+    }, 2000); // redirects after 2 seconds
+  </script>
+
+
+<footer>
+<br><br><br>
+	&copy;2020-2026 by Drall Induatries
+<br><br><br>
+</footer>
+
+</body>
+</html>

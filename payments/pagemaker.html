@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Payment Page</title>
+
+  <style>
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
+      background:#0f172a;
+      color:white;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+    }
+
+    .container{
+      width:100%;
+      max-width:420px;
+      background:#1e293b;
+      border-radius:24px;
+      padding:28px;
+      box-shadow:0 10px 40px rgba(0,0,0,0.4);
+      text-align:center;
+    }
+
+    h1{
+      font-size:32px;
+      margin-bottom:12px;
+    }
+
+    .subtitle{
+      color:#94a3b8;
+      font-size:14px;
+      line-height:1.6;
+      margin-bottom:28px;
+    }
+
+    .qr-wrapper{
+      background:white;
+      padding:16px;
+      border-radius:20px;
+      display:inline-block;
+      margin-bottom:24px;
+    }
+
+    .qr-wrapper img{
+      width:100%;
+      max-width:280px;
+      display:block;
+    }
+
+    .pay-btn{
+      display:block;
+      width:100%;
+      background:#10b981;
+      color:white;
+      text-decoration:none;
+      padding:16px;
+      border-radius:14px;
+      font-size:16px;
+      font-weight:bold;
+      transition:0.2s;
+    }
+
+    .pay-btn:hover{
+      background:#059669;
+    }
+
+    .info{
+      margin-top:22px;
+      color:#94a3b8;
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    .footer{
+      margin-top:26px;
+      color:#64748b;
+      font-size:12px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>Pay Now</h1>
+
+    <div class="subtitle">
+      Scan the QR code or tap the button below to open your UPI app.<br>
+      A surprisingly efficient financial system held together by QR codes and collective optimism.
+    </div>
+
+    <!-- YOUR STATIC QR CODE -->
+    <div class="qr-wrapper">
+      <img src="1299.png" alt="UPI QR Code">
+    </div>
+
+    <!-- YOUR STATIC UPI LINK -->
+    <a
+      class="pay-btn"
+      href="upi://pay?pa=9773585691@upi&pn=Rigel&am=1299&cu=INR"
+    >
+      Open UPI App
+    </a>
+
+    <div class="info">
+      Supported on Google Pay, PhonePe, Paytm,
+      BHIM, and most banking apps.
+    </div>
+
+    <div class="footer">
+      No payment gateways were harmed in the making of this page.
+    </div>
+
+  </div>
+
+</body>
+</html>

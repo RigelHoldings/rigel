@@ -1,0 +1,821 @@
+@font-face{
+	src: url(fonts/PlaypenSansDeva-VariableFont_wght.ttf);
+	font-family: playpen;
+}
+
+@font-face{
+	src: url (fonts/Merienda-VariableFont_wght.ttf);
+	font-family: merienda;
+}
+@font-face{
+	src: url(fonts/Forum-Regular.ttf);
+	font-family:fourm;
+}
+*{
+	margin:0px;
+       /*background-color: #d2d6d6*/
+}
+
+
+/*---------------------------Headder Starts From Here ------------------*/
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Navbar layout */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+/* Logo */
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+/* Nav menu (desktop default) */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: black;
+  font-family: playpen;
+  font-size: 16px;
+}
+
+/* Hamburger button (hidden on desktop) */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ---------------- MOBILE VIEW ---------------- */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: block;
+    color:red;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: white;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+
+    /* hidden by default */
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+}
+/*---------------------------Headder Ends  Here ------------------*/
+
+/*---------------------------H, P, A Config starts Here ------------------*/
+
+#h1{
+	font-family:playpen;
+	text-align:center;
+	font-size: clamp(10px, 10vw, 100px) ;
+	width:85%;
+        margin: 0 auto;
+	color: red;
+}
+#h2{
+	font-family:playpen;
+	text-align:center;
+	font-size: clamp(10px, 4.0vw, 50px) ;
+	width:85%;
+        margin: 0 auto;
+}
+
+#h3{
+	font-family:playpen;
+	text-align:center;
+	font-size: clamp(10px, 4.5vw, 50px) ;
+	width:85%;
+        margin: 0 auto;
+}
+
+#h1b{
+	font-family:playpen;
+	text-align:center;
+	font-size: clamp(10px, 4.5vw, 50px) ;
+	width:85%;
+        margin: 0 auto;
+}
+
+#h2r{
+	color:red;
+	font-family:playpen;
+	text-align:center;
+	font-size: clamp(10px, 4.5vw, 50px) ;
+	width:85%;
+        margin: 0 auto;
+}
+
+#h3r{
+	color:red;
+	font-family:playpen;
+	text-align:center;
+	font-size: clamp(10px, 4.5vw, 50px) ;
+	width:85%;
+        margin: 0 auto;
+}
+#h3dp{/* for config on dropshipping faq*/
+	color:red;
+	font-family:playpen;
+	text-align:center;
+	font-size: clamp(10px, 4.5vw, 50px) ;
+	width:85%;
+        margin: 0 auto;
+}
+#p1{
+	font-family:fourm;
+	letter-spacing:2px;
+	font-size: clamp(1px, 3.5vw, 19px) ;
+	width:75%;
+        margin: 0 auto;
+	text-align:center;
+	line-height:39px;
+}
+#p2{
+	font-family:fourm;
+	letter-spacing:2px;
+	font-weight:900;
+	text-align:center;
+	font-size: clamp(11px, 1.2vw, 17px) ;
+	width:85%;
+        margin: 0 auto;
+	line-height:39px;
+}
+#p2r{
+	font-family:fourm;
+	letter-spacing:2px;
+	font-weight:900;
+	text-align:center;
+	font-size: clamp(10px, 4.5vw, 15px) ;
+	width:85%;
+        margin: 0 auto;
+	line-height:39px;
+}
+#p2l{
+	font-family:fourm;
+	letter-spacing:2px;
+	font-weight:900;
+	margin-left:90px;
+	text-align:left;
+	font-size: clamp(10px, 4.5vw, 15px) ;
+	width:85%;
+        margin: 0 auto;
+	line-height:39px;
+}
+
+#pdp{
+	font-family:fourm;
+	letter-spacing:2px;
+	font-weight:900;
+	margin-left:90px;
+	font-size: clamp(7px, 2.2vw, 14px) ;
+	text-decoration:none ;
+	width:85%;
+        margin: 0 auto;
+	line-height:39px;
+}
+
+.a1{
+	font-family:fourm;
+	letter-spacing:2px;
+	font-weight:900;
+	text-align:center;
+	font-size: clamp(10px, 4.5vw, 50px) ;
+	width:85%;
+        margin: 0 auto;
+	line-height:39px;
+	color:black;
+}
+.a2{
+	font-family:fourm;
+	letter-spacing:2px;
+	font-weight:900;
+	text-align:center;
+	font-size: clamp(10px, 4.5vw, 50px) ;
+	width:85%;
+        margin: 0 auto;
+	line-height:39px;
+	color:black;
+}
+.au{
+	text-decoration:none;
+	color:black;
+
+}
+
+.ul1{
+	font-family:fourm;
+	letter-spacing:2px;
+	font-weight:900;
+	margin-left:155px;;
+	font-size: clamp(10px, 4.5vw, 50px) ;
+	width:85%;
+        margin: 0 auto;
+	line-height:39px;
+	color:black;
+}
+.ul2{
+	font-family:fourm;
+	letter-spacing:2px;
+	font-weight:900;
+	margin-left:155px;
+	font-size: clamp(10px, 4.5vw, 50px) ;
+	width:85%;
+        margin: 0 auto;
+	line-height:39px;
+	color:black;
+}
+/*---------------------------H and P Config Ends  Here ------------------*/
+/*--------------------------- Buttons Configuration Starts From Here Place all buttons cofiguration here ------------------*/
+.b1{
+	font-family:playpen;
+	text-align:center;
+}
+
+#b1:hover{
+	background-color:red;
+	color:white;
+}
+
+#b1{
+	font-family:playpen;
+	background-color:transparent;
+	text-align:center;
+	font-weight:550;
+	border-color:red;
+	border-radius:17px;
+	font-size: clamp(13px, 1.1vw, 45px);
+	width:clamp(125px, 8.9vw, 405px);
+        margin: 0 auto;
+	margin-top:10px;
+	margin-bottom:10px;
+	padding:10px;
+	cursor:pointer;
+}
+
+#b2:hover{
+	background-color:transparent;
+	color:red;
+}
+#b2{
+	font-family:playpen;
+	font-weight:550;
+	background-color:red;
+	color:white;
+	text-align:center;
+	border-color:red;
+	border-radius:17px;
+	font-size: clamp(13px, 1.1vw, 45px);
+	width:clamp(125px, 8.9vw, 500px);
+        margin: 0 auto;
+	margin-top:10px;
+	margin-bottom:10px;
+	padding:10px;
+	cursor:pointer;
+}
+#bs{
+	font-family:playpen;
+	background-color:transparent;
+	color:red;
+	text-align:center;
+	border-color:red;
+	border-radius:29px;
+	font-size: clamp(10px, 1vw, 21px);
+	width:100%;
+        margin: clamp(1px, 1vw, 50px);
+	padding:clamp(1px, 0.9vw, 20px);
+	cursor:pointer;
+}
+/*---------------------------Buttons Configuration Ends  Here ------------------*/
+/*-------------------------------------------------------------------------------Page Specific Config Starts Here ---------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------Rigel Home Starts  Here ---------------------------------------------------------------------*/
+/*---------------------------Box1 Starts From Here ------------------*/
+#rli1b1 {
+	display: block;
+	margin: 0 auto;
+	margin-top:49px;
+	margin-bottom:49px;
+	width: clamp(25px, 100%, 7000px);
+	height: auto;
+}
+
+
+.box1{
+	background-color: #edebe4;
+	margin:0px;
+}
+/*---------------------------Box 1 Ends  Here ------------------*/
+/*---------------------------Box 2 Starts From Here ------------------*/
+.box2{ /* Same Layout on Services and Rigel Home  */
+	background-image: url(Images/services.jpg);
+	padding:3px;
+
+}
+.container{
+    width:clamp(13px, 90vw, 2001px);
+    margin:11%;
+    display:flex;
+    flex-wrap:wrap;
+    gap:clamp(12px, 5.2vw, 300px);
+    margin-top:31px;
+    margin-bottom:31px;
+}
+
+.box{
+    font-size:clamp(13px, 1vw, 21px);
+    width:clamp(1px, 29vw, 290px);
+    height:clamp(1px, 27vw, 270px);
+    padding:clamp(12px, 3.3vw, 23px);
+    background-color:#edebe4;
+    border-radius:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.rsbox{
+	color:red;
+	text-decoration:none;
+}
+
+/*---------------------------Icons  Config Starts Here ------------------*/
+
+
+/*---------------------------Icons Ends Here ------------------*/
+/*---------------------------Box 2 Ends Here ------------------*/
+/*---------------------------Box 3 Starts Here ------------------*/
+#i1b3 {
+	
+	width: clamp(200px, 95%, 5000px);
+	height: auto;
+	display: block;
+        margin: 0 auto;
+}
+
+.box3{
+	background-color:#e5e6e8;
+}
+
+/*---------------------------Box 3 Ends Here ------------------*/
+/*---------------------------Box 4 Starts Here ------------------*/
+
+#i1b4 {
+	
+	width: clamp(200px, 100%, 5000px);
+	height: auto;
+	display: block;
+        margin: 0 auto;
+}
+
+.box4{
+	background-color:#faf5f2;
+}
+
+/*---------------------------Box 4 Ends Here ------------------*/
+/*---------------------------Box 5 Starts Here contact us ------------------*/
+.ctus{
+        background-color:#e5e5e5;
+}
+
+#ctusi1{
+	width: clamp(20px, 100%, 1000px);
+	height: auto;
+        float:left;
+}
+
+form{
+	display:flex;
+	flex-direction:column;
+        text-align:center;
+	align-items:center;
+	height:auto;
+	font-size: clamp(10px, 4.5vw, 50px) ;
+	width:85%;
+        margin: 0 auto;
+}
+
+input, select, textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 1%;
+    border: 1px solid #ccc;
+    border-radius: 11px;
+    font-size: clamp(10px, 1.3vw, 50px);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: red;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+::placeholder {
+    color: #999;
+    font-size: 14px;
+}
+input[type="submit"] {
+    background-color: red;
+    width: 40%;
+    margin-bottom:9%;
+    margin-top:1%;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color: darkred;
+}
+
+input[type="reset"] {
+    background-color: #777;
+    width: 40%;
+    color: white;
+    margin-bottom:1%;
+    margin-top:5%;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="reset"]:hover {
+    background-color: #555;
+}
+
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: clamp(13px, 1.4vw, 50px);
+}
+
+/*-----------------------------------------------------------------------Rigel Home Ends Here ---------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------Services Page Here ---------------------------------------------------------------------*/
+.si1b{ /* same for dropshipping plans page */
+	background-image: url(Images/servicespage.jpg);
+	width: clamp(20px, 100vw, 10000px);
+	height: clamp(600px, 100vw, 650px);
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+/*-----------------------------------box 1 Ends Here------------------------------------------------------*/
+/*-----------------------------------box 2 Starts Here------------------------------------------------------*/
+.b2s{
+	background-color:#edc9c9;
+	width: auto;
+	height: clamp(6px, 100vw, 650px);
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+
+/*-----------------------------------box 2 Ends Here------------------------------------------------------*/
+/*-----------------------------------box 3 Starts Here------------------------------------------------------*/
+
+.scontainer{
+    width:clamp(13px, 90vw, 2001px);
+    margin:8%;
+    display:flex;
+    flex-wrap:wrap;
+    gap:clamp(12px, 5.2vw, 300px);
+    margin-top:31px;
+    margin-bottom:31px;
+}
+
+.sbox{
+    font-size:clamp(13px, 1vw, 21px);
+    width:clamp(1px, 33vw, 360px);
+    height:clamp(1px, 36vw, 350px);
+    padding:clamp(12px, 3.3vw, 23px);
+    background-color:#edebe4;
+    border-radius:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.ssbox{
+	color:red;
+	text-decoration:none;
+}
+#sbox1{
+   font-size:clamp(11px, 1vw, 17px);
+}
+#sbox2{
+	color:black;
+   font-size:clamp(11px, 1vw, 17px);
+}
+/*-----------------------------------box 3 Ends Here------------------------------------------------------*/
+/*-----------------------------------box 4 Starts Here------------------------------------------------------*/
+.b4s{
+	background-image: url(Images/servicepage2.jpg);
+	height:clamp(11px, 40vw, 7000px);
+	width:auto;
+	background-size: cover;
+    	background-position: center;
+    	background-repeat: no-repeat;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.b4ss{
+	font-family:playpen;
+	background-size: cover;
+	font-size: clamp(10px, 1vw, 50px);
+	width:19%;
+        margin: 0 auto;
+	text-align:center;
+	color: black;
+	background-color:white;
+	padding:clamp(1px, 3vw, 50px);
+
+}
+
+/*-----------------------------------box 4 Ends Here------------------------------------------------------*/
+/*-----------------------------------box 5 Starts Here------------------------------------------------------*/
+.b5s{
+	background-color:#f4f6f6;
+	height:clamp(11px, 40vw, 7000px);
+	width:auto;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.b5ss{
+	font-family:playpen;
+	background-size: cover;
+	font-size: clamp(10px, 4.5vw, 50px) ;
+	width:85%;
+        margin: 0 auto;
+	color: black;
+
+}
+/*-----------------------------------------------------------------------Services Page Ends Here ---------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------About us Starts  Here ---------------------------------------------------------------------*/
+#abusi1{
+        
+	width: clamp(200px, 100%, 1000px);
+	height: auto;
+        float:left;
+}
+#h2ab{
+	font-family:playpen;
+	text-align:center;
+	font-size: clamp(10px, 4vw, 50px) ;
+	width:85%;
+        margin: 0 auto;
+	color: red;
+}
+
+/*-----------------------------------------------------------------------About us Ends  Here ---------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------Dropshipping Page Starts Here ---------------------------------------------------------------------*/
+/*-----------------------------------box 2 Starts Here------------------------------------------------------*/
+
+#idp1{/* same config for dp box 4 */
+	width: clamp(10px, 100vw, 900px);
+	height: auto;
+	display: block;
+        margin: 0 auto;
+        float:left;
+}
+/*-----------------------------------box 2 Ends Here------------------------------------------------------*/
+/*-----------------------------------box 3 Starts Here------------------------------------------------------*/
+.b3dp{
+	clear:left;
+	background-color:#f4f6f6;
+}
+/*-----------------------------------box 3 Ends Here------------------------------------------------------*/
+/*-----------------------------------box 4 Starts Here------------------------------------------------------*/
+.dpbox4{ /* Same Layout on Services and Rigel Home  */
+	background-image: url(Images/dpfeatures.jpg);
+	padding:3px;
+
+}
+
+.dpcontainer{
+    width:clamp(13px, 90vw, 2001px);
+    margin:11%;
+    display:flex;
+    flex-wrap:wrap;
+    gap:clamp(12px, 5.2vw, 300px);
+    margin-top:31px;
+    margin-bottom:31px;
+}
+
+.dpbox{
+    font-size:clamp(13px, 1vw, 21px);
+    width:clamp(1px, 29vw, 290px);
+    height:clamp(1px, 27vw, 270px);
+    padding:clamp(12px, 3.3vw, 23px);
+    background-color:#edebe4;
+    border-radius:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+/*-----------------------------------box 4 Ends Here------------------------------------------------------*/
+/*-----------------------------------box 5 Starts Here------------------------------------------------------*/
+.dpq1{
+    background-image: url(Images/dpquestion.jpeg);
+    padding:10%;
+}
+.dpq2{
+	background-color:#f4f4f4;
+}
+/*-----------------------------------box 5 Ends Here------------------------------------------------------*/
+/*-----------------------------------------------------------------------Dropshipping Page Ends Here ---------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------Dropshipping Plans Starts Here ---------------------------------------------------------------------*/
+.dpplcontainer{
+    width:clamp(13px, 90vw, 2001px);
+    margin:8%;
+    display:flex;
+    flex-wrap:wrap;
+    gap:clamp(12px, 1vw, 300px);
+    margin-top:31px;
+    margin-right:10%;
+    margin-left:7%;
+    margin-bottom:31px;
+}
+
+.dpplbox{
+ 	width:clamp(1px, 80vw, 360px);
+ 	height:auto;
+ 	padding:clamp(12px, 3.3vw, 23px);
+ 	background-color:#edebe4;
+ 	border-radius:15px;
+ 	display:flex;	
+	justify-content:center;
+    	align-items:center;
+	text-align:center;
+	color:red;
+	font-size: clamp(10px, 4.5vw, 15px) ;
+	text-decoration:none;
+}
+.dpplsbox{
+	color:red;
+	margin:10%;
+	text-decoration:none;
+}
+#dpbox1{
+	font-size: clamp(10px, 4.5vw, 15px) ;
+	margin:10%;
+}
+#dpbox2{
+	color:black;
+	align-items:left;
+	margin:10%;
+	font-size:17px;
+}
+.dppltb{
+	line-height:31px;
+	color:black;
+	font-size: clamp(10px, 4.5vw, 15px) ;
+	width:85%;
+	margin:10%;
+}
+
+
+/*-----------------------------------box 5 Starts Here------------------------------------------------------*/
+.b5dp{
+	background-color:#f4f6f6;
+	height:clamp(11px, 70vw, 300px);
+	width:auto;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+/*-----------------------------------box 5 Ends Here------------------------------------------------------*/
+/*-----------------------------------------------------------------------Dropshipping Plans Ends Here ---------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------Dropshipping Plans Page Config Starts Ends Here ---------------------------------------------------------------------*/
+
+#dpplp1{/* same config for all dropshipping plans page */
+        height:auto;
+	width:clamp(200px, 100vw, 5000px);
+        float:left;
+}
+
+/*-----------------------------------------------------------------------Dropshipping Plans Page Config Ends Here ---------------------------------------------------------------------*/
+
+
+/*-------------------------------------------------------------------------------Page Specific Config Ends Here ---------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------Service Pages Config Starts Here ---------------------------------------------------------------------*/
+.srbox1{
+	background:#f8f4f4;
+	padding:30px;
+}
+.srbox3{
+	background-color:#f1d9d9;
+	padding:30px;
+}
+.srbox5{
+	background:#f8f4f4;
+	padding:30px;
+}
+.srbox7{
+	background:#f1d9d9;
+	padding:30px;
+}
+.srbox9{
+	background:#f8f4f4;
+	padding:30px;
+}
+/*-----------------------------------------------------------------------Service Pages Config Ends Here ---------------------------------------------------------------------*/
+/*---------------------------Back To Top Button Starts From Here ------------------*/
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  width: 29px;
+  height: 29px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: red;
+  color: white;
+
+  font-size: 17px;
+  cursor: pointer;
+
+  display: none;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+  z-index: 999;
+}
+
+/* Mobile only */
+@media (min-width: 769px) {
+  #backToTop {
+    display: none !important;
+  }
+}
+
+/*---------------------------Back To top Button Ends Here ------------------*/
+
+/*---------------------------Footer Starts From Here ------------------*/
+footer{
+	clear:left;
+	text-align:center;
+	font-family:system-ui;
+}
+
+#f1{
+	color:red;
+	font-size:29px;
+	text-decoration:none;
+}
+
+
+
+#f2{
+    color:black;
+	font-size: clamp(10px, 4.5vw, 15px) ;
+	width:85%;
+        margin: 0 auto;
+    text-decoration:none;
+}
+
+
+/* ---------------- Footer Ends Here ------------------ */
+

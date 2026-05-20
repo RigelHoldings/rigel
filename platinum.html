@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="rigel.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Rigel Enterprises </title>
+	<link rel="icon" type="image.jpg" href="Images/Rigellogoicon.jpg">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+	integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"/> <!--Link For icons -->
+
+</head>
+
+<body>
+<!---------------------------------------Header Starts From Here------------------------------------------------>
+<header class="header">
+  <nav class="navbar">
+
+    <a href="rigelhome.html" class="logo">
+      <img src="Images/Rigellogowhite3.jpg" alt="Rigel Logo">
+    </a>
+
+    <!-- Hamburger Button -->
+    <button class="hamburger" id="hamburger">
+      ☲
+    </button>
+
+    <!-- Navigation Links -->
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="rigelhome.html">Rigel</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+
+  </nav>
+</header>
+
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+</script>
+
+
+
+<!---------------------------------------Header Ends Here------------------------------------------------>
+<br><br><br><br>
+<!---------------------------------------Box 1 Starts Here------------------------------------------------>
+<img src="Images/Rigellogowhite3.jpg" id="dpplp1" >
+
+<br><br><br><br>
+<a class="dpplsbox" href="https://pmny.in/lJX8Dc87cXof"><h2 id="box1">Platinum Membership</h2><br><h3 id="dpbox2">₹3599*</h3>
+        <br><h3 id="sbox2" >Main Benefits</h3><br>
+                <div class="dppltb">
+                 <ul>
+                        <li>Our Whole inventory</li>
+                        <li>We will register the GST</li>
+                        <li>We will register the Seller Account</li>
+                        <li>We will List the Products</li>
+                        <li>We will Promote the Products</li>
+                        <li>Packaging cost included.</li>
+                        <li>Per Month Profit Guarantee</li>
+                        <li>365 Days Money Back Guarantee</li>
+                </ul>
+               </div>
+<br><button id="b1">Join NOW</button></a> </div>
+<!---------------------------------------Box 1 Ends Here------------------------------------------------>
+<br><br><br><br>
+<br><br><br><br>
+<!---------------------------------------Box 2 Starts Here------------------------------------------------>
+<h3 id="h3r"> Monthly Charge</h3>
+<p id="p2">After Overall Sales on Seller ids cross ₹15,000 Per Month a Payment of ₹1000 has to be made for every 30 Days For<br>continuation of this Plan.
+<br><br><a class="a2" href="monthlycharge.html">Want to Know WHY You Need To Pay ?</a> </p>
+<br><br>
+<div class="b1"><a href="https://pmny.in/lJX8Dc87cXof"><button id="b2">Join NOW</button></a></div><br><br>
+<div class="b1"><a href="contactus.html"><button id="b1">I've a Query</button></a></div><br><br>
+<!---------------------------------------Box 2 Ends Here------------------------------------------------>
+</body>
+<!---------------------------------------Back To Top Button Starts Here------------------------------------------------>
+<button id="backToTop">⇧</button>
+
+<script>
+  const backToTop = document.getElementById("backToTop");
+
+  window.addEventListener("scroll", () => {
+
+    // total scrollable height
+    const scrollHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+    // current scroll %
+    const scrollPercent =
+      (window.scrollY / scrollHeight) * 100;
+
+    // show button after 30%
+    if (scrollPercent > 30 && window.innerWidth <= 768) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+  });
+
+  // smooth scroll to top
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+
+<!---------------------------------------Back To Top Button Ends Here------------------------------------------------>
+<!---------------------------------------Footer Starts From Here------------------------------------------------>
+<footer>
+<br><br><br>
+<a id="f1" href="rigelhome.html">Rigel Enterprises</a><br><br><br>
+	<a id="f2"  href="mailto:enterprisesrigel@gmail.com">enterprisesrigel@gmail.com</a><br><br>
+	&copy;2020-2026 by Drall Induatries
+<br><br><br>
+</footer>
+</body>
+</html>
+	
+

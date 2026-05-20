@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="rigel.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Rigel Enterprises </title>
+	<link rel="icon" type="image.jpg" href="Images/Rigellogoicon.jpg">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+	integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"/> <!--Link For icons -->
+
+</head>
+
+<body>
+<!---------------------------------------Header Starts From Here------------------------------------------------>
+<header class="header">
+  <nav class="navbar">
+
+    <a href="rigelhome.html" class="logo">
+      <img src="Images/Rigellogowhite3.jpg" alt="Rigel Logo">
+    </a>
+
+    <!-- Hamburger Button -->
+    <button class="hamburger" id="hamburger">
+      ☲
+    </button>
+
+    <!-- Navigation Links -->
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="rigelhome.html">Rigel</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+
+  </nav>
+</header>
+
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+</script>
+
+
+
+<!---------------------------------------Header Ends Here------------------------------------------------>
+<h1 id="h1"> Dropshipping Refund Policy</h1>
+<p id="p2">Last updated: May 5, 2026</p>
+<p id="p2l">
+<br>1. Introduction
+<br><br>
+Welcome to Rigel Enterprises (“Company”, “we”, “our”, “us”)!<br>
+
+These Terms of Service (“Terms”, “Terms of Service”) govern your use of our website located at Rigel Enterprises https://www.rigelholdings.com (together or individually “Service”) operated by Rigel Enterp    rises.<br>
+
+Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our web pages.<br>
+
+Your agreement with us includes these Terms and our Privacy Policy (“Agreements”). You acknowledge that you have read and understood Agreements, and agree to be bound of them.<br>
+
+If you do not agree with (or cannot comply with) Agreements, then you may not use the Service, but please let us know by emailing at enterprisesrigel@gmail.com so we can try to find a solution. These Term    s apply to all visitors, users and others who wish to access or use Service.<br>
+
+
+<br><br><br>
+2. Refund Eligibility<br><br>
+Refunds may be considered under the following conditions:<br>
+The client has requested cancellation in writing within 365 days of payment.<br>
+Services have not been fully rendered or completed.<br>
+The request is not related to dissatisfaction arising from outcomes beyond our control (e.g., government rejections, market response to marketing, etc.).<br>
+
+<br><br><br>
+3. Deductions Prior to Refund<br><br>
+If a refund is approved, the following costs will be deducted from the refund amount:<br>
+3.1 File Storage and Documentation Fees<br>
+Charges related to the storage, preparation, or submission of client files or documents.<br>
+Typical deduction: ₹250 or actual incurred cost, whichever is higher.
+<br><br>
+3.2 Marketing or Advertising Expenses<br>
+Any marketing services rendered or ads placed on behalf of the client.<br>
+This includes, but is not limited to, graphic design, digital ad spend, content creation, or distribution fees.<br>
+<br>
+3.3 Statutory or Government Fees<br>
+Fees already paid to third-party agencies or government bodies for services such as:<br>
+GST Registration<br>
+Trademark applications<br>
+Business registrations<br>
+<br><br>
+These are non-recoverable costs and will be deducted in full as per invoices.
+
+<br><br><br><br>
+
+4. Non-Refundable Services<br><br>
+No refunds will be issued for:<br>
+Services that have been fully rendered<br>
+Packages purchased under promotional offers or at discounted rates<br>
+Delays caused by client in providing required documentation<br>
+
+<br><br><br>
+
+5. Refund Processing Time<br><br>
+Approved refunds will be processed within 7–14 business days from the date of approval.<br>
+Refunds will be made to the original mode of payment unless otherwise requested and agreed.<br>
+
+<br><br><br>
+6. Limitation of Liability<br><br>
+The maximum liability of Rigel Enterprises is limited to the amount paid by the client minus the non-refundable charges outlined above. Under no circumstances shall the company be held liable for:<br>
+Indirect losses<br>
+Business interruption<br>
+Reputational damage<br>
+Any consequential damages<br>
+
+<br><br><br>
+7. Amendments<br><br>
+This policy may be updated from time to time. Clients will be notified of any significant changes via email or website notification at least 7 days prior to implementation.
+
+<br><br><br><br>
+8. Acknowledgement
+<br><br>
+
+BY USING SERVICE OR OTHER SERVICES PROVIDED BY US, YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS OF SERVICE AND AGREE TO BE BOUND BY THEM.<br>
+
+<br><br><br>
+9. Contact Us
+<br><br>
+
+
+Please send your feedback, comments, and requests for technical support by email: enterprisesrigel@gmail.com.
+<br>
+
+</p>
+<!---------------------------------------Back To Top Button Starts Here------------------------------------------------>
+<button id="backToTop">⇧</button>
+
+<script>
+  const backToTop = document.getElementById("backToTop");
+
+  window.addEventListener("scroll", () => {
+
+    // total scrollable height
+    const scrollHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+    // current scroll %
+    const scrollPercent =
+      (window.scrollY / scrollHeight) * 100;
+
+    // show button after 30%
+    if (scrollPercent > 30 && window.innerWidth <= 768) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+  });
+
+  // smooth scroll to top
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+
+<!---------------------------------------Back To Top Button Ends Here------------------------------------------------>
+<!---------------------------------------Footer Starts From Here------------------------------------------------>
+<footer>
+<br><br><br>
+<a id="f1" href="rigelhome.html">Rigel Enterprises</a><br><br><br>
+	<a id="f2"  href="mailto:enterprisesrigel@gmail.com">enterprisesrigel@gmail.com</a><br><br>
+	&copy;2020-2026 by Drall Induatries
+<br><br><br>
+</footer>
+</body>
+</html>
+	
+
