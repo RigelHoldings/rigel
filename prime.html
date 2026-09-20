@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="rigel.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Rigel Enterprises </title>
+	<link rel="icon" type="image.jpg" href="Images/Rigellogoicon.jpg">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+	integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"/> <!--Link For icons -->
+
+</head>
+
+<body>
+<!---------------------------------------Header Starts From Here------------------------------------------------>
+<header class="header">
+  <nav class="navbar">
+
+    <a href="rigelhome.html" class="logo">
+      <img src="Images/Rigellogowhite3.jpg" alt="Rigel Logo">
+    </a>
+
+    <!-- Hamburger Button -->
+    <button class="hamburger" id="hamburger">
+      ☲
+    </button>
+
+    <!-- Navigation Links -->
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="rigelhome.html">Rigel</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+
+  </nav>
+</header>
+
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+</script>
+
+
+
+<!---------------------------------------Header Ends Here------------------------------------------------>
+<style>
+
+/* =========================================================
+   SILVER.HTML
+   BOX 1 + BOX 2 RESPONSIVE CONTENT STYLING
+   ---------------------------------------------------------
+   Header untouched
+   Footer untouched
+   Back-to-top untouched
+   Existing IDs/classes preserved
+========================================================= */
+
+
+/* =========================================================
+   BOX 1
+   Silver Membership
+========================================================= */
+
+
+/* Silver logo */
+
+#dpplp1 {
+    display: block;
+
+    width: clamp(150px, 28vw, 330px);
+    height: auto;
+
+    margin:
+        clamp(25px, 5vw, 55px)
+        auto
+        clamp(20px, 4vw, 45px);
+
+    object-fit: contain;
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+}
+
+#dpplp1:hover {
+    transform:
+        translateY(-5px)
+        scale(1.02);
+
+    filter:
+        drop-shadow(0 12px 20px rgba(0,0,0,0.12));
+}
+
+
+/* ---------------------------------------------------------
+   Main Silver Membership card
+--------------------------------------------------------- */
+
+.dpplsbox {
+
+    display: block;
+
+    width:
+        min(88%, 850px);
+
+    margin:
+        clamp(20px, 4vw, 45px)
+        auto;
+
+    padding:
+        clamp(25px, 5vw, 60px)
+        clamp(20px, 5vw, 65px);
+
+    box-sizing: border-box;
+
+    border-radius:
+        clamp(16px, 2.5vw, 28px);
+
+    /*
+       Existing Silver palette retained.
+       Transparency is used only for the glass effect.
+    */
+
+    background:
+        rgba(237, 235, 228, 0.72);
+
+    backdrop-filter:
+        blur(18px)
+        saturate(115%);
+
+    -webkit-backdrop-filter:
+        blur(18px)
+        saturate(115%);
+
+    border:
+        1px solid rgba(255,255,255,0.48);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.09),
+        0 25px 60px rgba(0,0,0,0.04),
+        inset 0 1px 0 rgba(255,255,255,0.60),
+        inset 0 -1px 0 rgba(0,0,0,0.035);
+
+    text-align: center;
+
+    transition:
+        transform 0.4s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.4s ease;
+}
+
+
+.dpplsbox:hover {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.12),
+        0 30px 70px rgba(0,0,0,0.05),
+        inset 0 1px 0 rgba(255,255,255,0.70);
+}
+
+
+/* ---------------------------------------------------------
+   Silver Membership title
+--------------------------------------------------------- */
+
+#sbox1 {
+
+    display: block;
+
+    margin:
+        0 auto
+        clamp(12px, 2vw, 22px);
+
+    font-size:
+        clamp(24px, 4vw, 44px) !important;
+
+    line-height:
+        1.2;
+
+    letter-spacing:
+        clamp(0px, 0.08vw, 1px);
+
+    text-align:
+        center;
+}
+
+
+/* ---------------------------------------------------------
+   Price + Main Benefits headings
+   Same ID exists twice in the HTML, so both are styled.
+--------------------------------------------------------- */
+
+#sbox2 {
+
+    display: block;
+
+    margin:
+        clamp(8px, 1.5vw, 18px)
+        auto;
+
+    font-size:
+        clamp(17px, 2.5vw, 28px) !important;
+
+    line-height:
+        1.4;
+
+    text-align:
+        center;
+}
+
+
+/* =========================================================
+   BENEFITS BOX
+========================================================= */
+
+.dppltb {
+
+    width:
+        min(100%, 650px);
+
+    margin:
+        clamp(18px, 3vw, 30px)
+        auto;
+
+    padding:
+        clamp(16px, 3vw, 30px)
+        clamp(18px, 4vw, 42px);
+
+    box-sizing: border-box;
+
+    border-radius:
+        clamp(12px, 2vw, 20px);
+
+    background:
+        rgba(255,255,255,0.20);
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    border:
+        1px solid rgba(255,255,255,0.35);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.45),
+        0 8px 25px rgba(0,0,0,0.04);
+
+    text-align:
+        left;
+
+    line-height:
+        1.7;
+}
+
+
+/* Benefits list */
+
+.dppltb ul {
+
+    margin:
+        0;
+
+    padding-left:
+        clamp(20px, 3vw, 35px);
+}
+
+
+.dppltb li {
+
+    margin:
+        clamp(5px, 0.8vw, 9px)
+        0;
+
+    padding-left:
+        clamp(2px, 0.5vw, 6px);
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.dppltb li:hover {
+
+    transform:
+        translateX(5px);
+}
+
+
+/* ---------------------------------------------------------
+   Join NOW button inside Box 1
+--------------------------------------------------------- */
+
+.dpplsbox #b1 {
+
+    margin-top:
+        clamp(15px, 2vw, 28px);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.dpplsbox #b1:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.02);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.13);
+}
+
+
+/* =========================================================
+   BOX 2
+   Monthly Charge
+========================================================= */
+
+
+/* Monthly Charge heading */
+
+#h3r {
+
+    display: block;
+
+    width:
+        min(90%, 900px);
+
+    margin:
+        clamp(35px, 7vw, 90px)
+        auto
+        clamp(18px, 3vw, 30px);
+
+    font-size:
+        clamp(25px, 4.5vw, 50px);
+
+    line-height:
+        1.2;
+
+    text-align:
+        center;
+
+    transition:
+        transform 0.35s ease,
+        text-shadow 0.35s ease;
+}
+
+
+#h3r:hover {
+
+    transform:
+        translateY(-3px);
+
+    text-shadow:
+        0 7px 18px rgba(0,0,0,0.10);
+}
+
+
+/* ---------------------------------------------------------
+   Monthly charge explanation
+--------------------------------------------------------- */
+
+#p2 {
+
+    display: block;
+
+    width:
+        min(88%, 900px);
+
+    margin:
+        0 auto;
+
+    padding:
+        clamp(20px, 4vw, 40px)
+        clamp(18px, 5vw, 55px);
+
+    box-sizing: border-box;
+
+    border-radius:
+        clamp(14px, 2vw, 24px);
+
+    background:
+        rgba(237,235,228,0.50);
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+
+    border:
+        1px solid rgba(255,255,255,0.40);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.06),
+        inset 0 1px 0 rgba(255,255,255,0.55);
+
+    font-size:
+        clamp(15px, 1.7vw, 20px);
+
+    line-height:
+        clamp(1.7, 3vw, 2);
+
+    text-align:
+        center;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+#p2:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 17px 38px rgba(0,0,0,0.09),
+        inset 0 1px 0 rgba(255,255,255,0.65);
+}
+
+
+/* ---------------------------------------------------------
+   Why do I need to pay link
+--------------------------------------------------------- */
+
+.a2 {
+
+    display:
+        inline-block;
+
+    margin-top:
+        clamp(12px, 2vw, 20px);
+
+    padding:
+        8px
+        clamp(10px, 2vw, 20px);
+
+    border-radius:
+        50px;
+
+    line-height:
+        1.5;
+
+    transition:
+        transform 0.3s ease,
+        letter-spacing 0.3s ease;
+}
+
+
+.a2:hover {
+
+    transform:
+        translateY(-2px);
+
+    letter-spacing:
+        0.3px;
+}
+
+
+/* =========================================================
+   BOX 2 BUTTONS
+========================================================= */
+
+.b1 {
+
+    display: block;
+
+    width:
+        fit-content;
+
+    margin:
+        clamp(15px, 2vw, 25px)
+        auto;
+}
+
+
+.b1 #b1,
+.b1 #b2 {
+
+    transition:
+        transform 0.3s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.3s ease;
+}
+
+
+.b1 #b1:hover,
+.b1 #b2:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.02);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.13);
+}
+
+
+/* =========================================================
+   LARGE SCREENS
+========================================================= */
+
+@media (min-width: 1200px) {
+
+    .dpplsbox {
+
+        max-width:
+            900px;
+
+        padding:
+            65px 75px;
+    }
+
+
+    .dppltb {
+
+        max-width:
+            680px;
+    }
+
+
+    #p2 {
+
+        max-width:
+            950px;
+    }
+}
+
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media (min-width: 769px) and (max-width: 1199px) {
+
+    .dpplsbox {
+
+        width:
+            min(90%, 800px);
+
+        padding:
+            45px 45px;
+    }
+
+
+    #p2 {
+
+        width:
+            88%;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* ---------- Box 1 ---------- */
+
+    #dpplp1 {
+
+        width:
+            clamp(145px, 55vw, 280px);
+
+        margin:
+            25px auto
+            20px;
+    }
+
+
+    .dpplsbox {
+
+        width:
+            calc(100% - 28px);
+
+        padding:
+            clamp(22px, 6vw, 32px)
+            clamp(15px, 5vw, 25px);
+
+        border-radius:
+            20px;
+    }
+
+
+    #sbox1 {
+
+        font-size:
+            clamp(22px, 7vw, 34px) !important;
+    }
+
+
+    #sbox2 {
+
+        font-size:
+            clamp(17px, 4.8vw, 23px) !important;
+    }
+
+
+    .dppltb {
+
+        width:
+            100%;
+
+        padding:
+            15px 14px;
+
+        font-size:
+            clamp(14px, 3.8vw, 17px);
+
+        line-height:
+            1.7;
+
+        text-align:
+            left;
+    }
+
+
+    .dppltb ul {
+
+        padding-left:
+            24px;
+    }
+
+
+    /* ---------- Box 2 ---------- */
+
+    #h3r {
+
+        width:
+            calc(100% - 30px);
+
+        margin-top:
+            45px;
+
+        font-size:
+            clamp(25px, 8vw, 38px);
+    }
+
+
+    #p2 {
+
+        width:
+            calc(100% - 28px);
+
+        padding:
+            20px 16px;
+
+        font-size:
+            clamp(14px, 3.8vw, 17px);
+
+        line-height:
+            1.75;
+    }
+
+
+    /*
+       Prevent the hard-coded <br> in the HTML from
+       forcing an awkward line on narrow screens.
+    */
+
+    #p2 br {
+
+        display:
+            none;
+    }
+
+
+    .a2 {
+
+        margin-top:
+            15px;
+
+        line-height:
+            1.6;
+    }
+
+
+    .b1 {
+
+        width:
+            100%;
+
+        text-align:
+            center;
+
+        margin:
+            18px auto;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+
+    #dpplp1 {
+
+        width:
+            48vw;
+
+        min-width:
+            135px;
+    }
+
+
+    .dpplsbox {
+
+        width:
+            calc(100% - 20px);
+
+        padding:
+            22px 13px;
+    }
+
+
+    .dppltb {
+
+        padding:
+            12px 10px;
+    }
+
+
+    .dppltb ul {
+
+        padding-left:
+            22px;
+    }
+
+
+    #p2 {
+
+        width:
+            calc(100% - 20px);
+
+        padding:
+            18px 12px;
+    }
+
+
+    .a2 {
+
+        padding:
+            7px 8px;
+    }
+}
+
+
+/* =========================================================
+   VERY LARGE SCREENS
+========================================================= */
+
+@media (min-width: 1600px) {
+
+    .dpplsbox {
+
+        max-width:
+            950px;
+
+        padding:
+            75px 90px;
+    }
+
+
+    #dpplp1 {
+
+        max-width:
+            350px;
+    }
+
+
+    #p2 {
+
+        max-width:
+            1000px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #dpplp1,
+    .dpplsbox,
+    .dpplsbox #b1,
+    #h3r,
+    #p2,
+    .a2,
+    .b1 #b1,
+    .b1 #b2 {
+
+        transition:
+            none !important;
+
+        animation:
+            none !important;
+    }
+}
+</style>
+
+
+<!---------------------------------------Box 1 Starts Here------------------------------------------------>
+
+<br><br><br><br>
+<a class="dpplsbox" href="payments/primep.html" target="_blank"><h2 id="sbox1">Platinum Prime</h2><br><h3 id="dpbox2">₹8999*</h3>
+        <br><h3 id="sbox2" >Main Benefits</h3><br>
+                <div class="dppltb">
+                 <ul>
+                        <li>Our Whole inventory</li>
+                        <li>We will Provide address for GST</li>
+                        <li>We will register the GST</li>
+                        <li>We will register the Seller Account</li>
+                        <li>We will List the Products</li>
+                        <li>We will Promote the Products</li>
+                        <li>Packaging cost included.</li>
+                        <li>90 Days Money Back Guarantee</li>
+                </ul>
+               </div>
+<br><button id="b1">Join NOW</button></a> </div>
+<!---------------------------------------Box 1 Ends Here------------------------------------------------>
+<br><br><br><br>
+<br><br><br><br>
+<!---------------------------------------Box 2 Starts Here------------------------------------------------>
+<h3 id="h3r"> Monthly Charge</h3>
+<p id="p2">After Overall Sales on Seller ids cross ₹15,000 Per Month a Payment of ₹1000 along with the price of rented space has to be made for every 30 Days For continuation of this Plan.
+<br><br><a class="a2" href="monthlycharge.html">Want to Know WHY You Need To Pay ?</a> </p>
+<br><br>
+<div class="b1"><a href="payments/primep.html" target="_blank"><button id="b2">Join NOW</button></a></div><br><br>
+<div class="b1"><a href="contactus.html"><button id="b1">I've a Query</button></a></div><br><br>
+<!---------------------------------------Box 2 Ends Here------------------------------------------------>
+</body>
+<!---------------------------------------Back To Top Button Starts Here------------------------------------------------>
+<button id="backToTop">⇧</button>
+
+<script>
+  const backToTop = document.getElementById("backToTop");
+
+  window.addEventListener("scroll", () => {
+
+    // total scrollable height
+    const scrollHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+    // current scroll %
+    const scrollPercent =
+      (window.scrollY / scrollHeight) * 100;
+
+    // show button after 30%
+    if (scrollPercent > 30 && window.innerWidth <= 768) {
+      backToTop.style.display = "block";
+    } else {
+      backToTop.style.display = "none";
+    }
+  });
+
+  // smooth scroll to top
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+
+<!---------------------------------------Back To Top Button Ends Here------------------------------------------------>
+<!---------------------------------------Footer Starts From Here------------------------------------------------>
+<footer>
+<br><br><br>
+<a id="f1" href="rigelhome.html">Rigel Enterprises</a><br><br><br>
+	<a id="f2"  href="mailto:enterprisesrigel@gmail.com">enterprisesrigel@gmail.com</a><br><br>
+	&copy;2020-2026 by Drall Induatries
+<br><br><br>
+</footer>
+</body>
+</html>
+	
+
