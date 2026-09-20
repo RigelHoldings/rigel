@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple UPI Payment</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #111827;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      background: #1f2937;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      margin-top: 0;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #9ca3af;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      margin-top: 18px;
+      font-size: 14px;
+      color: #d1d5db;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      background: #374151;
+      color: white;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 22px;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: #10b981;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #059669;
+    }
+
+    .qr-section {
+      margin-top: 28px;
+      text-align: center;
+      display: none;
+    }
+
+    /*
+      QR container
+      -------------------------
+      The logo is positioned in
+      the exact center of this box.
+    */
+    #qrcode {
+      background: white;
+      padding: 12px;
+      border-radius: 14px;
+      display: inline-block;
+      margin-top: 10px;
+
+      position: relative;
+      line-height: 0;
+    }
+
+    #qrcode canvas {
+      display: block;
+    }
+
+    /*
+      Rigel logo in the QR center
+    */
+    .qr-logo {
+      position: absolute;
+
+      width: 72px;
+      height: 72px;
+
+      object-fit: contain;
+
+      background: white;
+      padding: 5px;
+
+      border-radius: 8px;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      z-index: 10;
+    }
+
+    .upi-link {
+      display: block;
+      margin-top: 20px;
+      text-decoration: none;
+      background: #2563eb;
+      padding: 14px;
+      border-radius: 12px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .upi-link:hover {
+      background: #1d4ed8;
+    }
+
+    .note {
+      margin-top: 18px;
+      font-size: 13px;
+      color: #9ca3af;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .footer {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>UPI Payment</h1>
+
+    <div class="subtitle">
+      Tiny payment page for civilized humans who hate payment gateways.
+    </div>
+
+
+    <!-- UPI ID -->
+
+    <label>UPI ID</label>
+
+    <input
+      type="text"
+      id="upiId"
+      placeholder="yourupi@bank"
+    />
+
+
+    <!-- NAME -->
+
+    <label>Name</label>
+
+    <input
+      type="text"
+      id="name"
+      placeholder="Your Name"
+    />
+
+
+    <!-- AMOUNT -->
+
+    <label>Amount (₹)</label>
+
+    <input
+      type="number"
+      id="amount"
+      placeholder="499"
+    />
+
+
+    <!-- NOTE -->
+
+    <label>Note (optional)</label>
+
+    <input
+      type="text"
+      id="note"
+      placeholder="Invoice / Product / Whatever"
+    />
+
+
+    <!-- GENERATE BUTTON -->
+
+    <button onclick="generatePayment()">
+      Generate QR
+    </button>
+
+
+    <!-- QR SECTION -->
+
+    <div class="qr-section" id="qrSection">
+
+      <h2>Scan & Pay</h2>
+
+      <!--
+        The QR code and Rigel logo
+        will be inserted here.
+      -->
+
+      <div id="qrcode"></div>
+
+
+      <!-- OPEN UPI APP -->
+
+      <a
+        class="upi-link"
+        id="payBtn"
+        href="#"
+      >
+        Open UPI App
+      </a>
+
+
+      <div class="note">
+
+        If the button doesn't work,
+        scan the QR using any UPI app.<br>
+
+        Humanity somehow standardized this correctly.
+        A miracle.
+
+      </div>
+
+    </div>
+
+
+    <div class="footer">
+
+      No Razorpay. No Stripe.
+      No VC-backed middlemen harvesting your soul.
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function generatePayment() {
+
+      /*
+        Get values from the form
+      */
+
+      const upiId =
+        document.getElementById("upiId").value.trim();
+
+      const name =
+        document.getElementById("name").value.trim();
+
+      const amount =
+        document.getElementById("amount").value.trim();
+
+      const note =
+        document.getElementById("note").value.trim();
+
+
+      /*
+        Validate required fields
+      */
+
+      if (!upiId || !name || !amount) {
+
+        alert("Please fill all required fields.");
+
+        return;
+
+      }
+
+
+      /*
+        Create UPI payment URL
+      */
+
+      const upiLink =
+        `upi://pay?pa=${encodeURIComponent(upiId)}` +
+        `&pn=${encodeURIComponent(name)}` +
+        `&am=${encodeURIComponent(amount)}` +
+        `&cu=INR` +
+        `&tn=${encodeURIComponent(note)}`;
+
+
+      /*
+        Find QR container
+      */
+
+      const qrContainer =
+        document.getElementById("qrcode");
+
+
+      /*
+        Clear previous QR + logo
+        before generating a new one.
+      */
+
+      qrContainer.innerHTML = "";
+
+
+      /*
+        Generate QR code.
+
+        H = highest error correction level.
+
+        This is important because we're
+        covering the middle of the QR with
+        the Rigel logo.
+      */
+
+      QRCode.toCanvas(
+
+        upiLink,
+
+        {
+          width: 260,
+
+          errorCorrectionLevel: "H"
+        },
+
+        function(error, canvas) {
+
+          /*
+            Check for QR generation errors
+          */
+
+          if (error) {
+
+            console.error(error);
+
+            alert("QR generation failed.");
+
+            return;
+
+          }
+
+
+          /*
+            Add QR canvas
+          */
+
+          qrContainer.appendChild(canvas);
+
+
+          /*
+            Create Rigel logo
+          */
+
+          const logo =
+            document.createElement("img");
+
+
+          /*
+            IMPORTANT:
+            This file must be in the same
+            folder as qrmaker.html.
+          */
+
+          logo.src = "rigel-logo.jpg";
+
+
+          /*
+            CSS class that positions the
+            logo in the center.
+          */
+
+          logo.className = "qr-logo";
+
+
+          logo.alt = "Rigel";
+
+
+          /*
+            Add logo on top of QR
+          */
+
+          qrContainer.appendChild(logo);
+
+        }
+
+      );
+
+
+      /*
+        Set UPI payment button
+      */
+
+      document.getElementById("payBtn").href =
+        upiLink;
+
+
+      /*
+        Show QR section
+      */
+
+      document.getElementById("qrSection").style.display =
+        "block";
+
+    }
+
+  </script>
+
+</body>
+</html>
