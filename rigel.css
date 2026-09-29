@@ -652,6 +652,35 @@ label {
     text-align:center;
 }
 
+.dpplcontainers{
+    width:clamp(13px, 90vw, 2001px);
+    margin:4%;
+    display:flex;
+    flex-wrap:wrap;
+    gap:clamp(12px, 1vw, 300px);
+    margin-top:31px;
+    margin-bottom:31px;
+    justify-content: center;
+}
+
+
+.dpplboxs{
+ 	width:clamp(1px, 80vw, 360px);
+ 	height:auto;
+ 	padding:clamp(12px, 3.3vw, 23px);
+ 	background-color:#edebe4;
+ 	border-radius:15px;
+ 	display:flex;	
+	justify-content:center;
+    	align-items:center;
+	text-align:center;
+	color:red;
+	font-size: clamp(10px, 4.5vw, 15px) ;
+	text-decoration:none;
+}
+
+
+
 /*-----------------------------------box 4 Ends Here------------------------------------------------------*/
 /*-----------------------------------box 5 Starts Here------------------------------------------------------*/
 .dpq1{
