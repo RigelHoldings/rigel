@@ -51,102 +51,97 @@
 <!---------------------------------------Header Ends Here------------------------------------------------>
 
 <!---------------------------------------Box 5 Stats Here contact us------------------------------------------------>
-<img src="Images/RigelCUP.jpg" id="ctusi1">
-<div class="ctus">
+<div class="contact-wrap">
 
-<h1 id="h1">Have a Coffee with Us</h1><br>
+    <img src="Images/RigelCUP.jpg" id="ctusi1">
 
-<h4 id="h2">
-E-50,Rajdhani Park, MUNDKA, NEW DELHI 110041
-</h4>
+    <div class="ctus">
 
-<p id="p1">
-<a href="mailto:enterprisesrigel@gmail.com">
-enterprisesrigel@gmail.com
-</a><br>
+        <h1 id="h1ct">Have a Coffee with Us</h1>
 
-<a href="tel:9911376325">
-9911376325
-</a>
-</p>
+        <h4 id="h2ct">
+            E-50,Rajdhani Park, MUNDKA, NEW DELHI 110041
+        </h4>
 
-<br>
+        <p id="p1ct">
+            <a href="mailto:enterprisesrigel@gmail.com">
+                enterprisesrigel@gmail.com
+            </a><br>
 
-<form id="contact-form">
+            <a href="tel:9911376325">
+                9911376325
+            </a>
+        </p>
 
-    <label for="username">Your Name &nbsp </label>
-    <input
-        type="text"
-        id="username"
-        name="name"
-        placeholder="Enter Your Name"
-        required
-    >
-    <br><br>
+        <form id="contact-form">
 
-    <label for="email">Email&nbsp</label>
-    <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Enter Your Email id"
-        required
-    >
-    <br><br>
+            <label for="username">Your Name</label>
+            <input
+                type="text"
+                id="username"
+                name="name"
+                placeholder="Enter Your Name"
+                required
+            >
 
-    <label for="phone">Phone&nbsp</label>
-    <input
-        type="tel"
-        id="phone"
-        name="phone"
-        placeholder="Enter your Phone No."
-        maxlength="10"
-        required
-    >
-    <br><br>
+            <label for="email">Email</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter Your Email id"
+                required
+            >
 
-    <label for="service">Service&nbsp</label>
+            <label for="phone">Phone</label>
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Enter your Phone No."
+                maxlength="10"
+                required
+            >
 
-    <select id="service" name="service" required>
+            <label for="service">Service</label>
 
-        <option disabled selected value="">
-            Please Select the Service you want
-        </option>
+            <select id="service" name="service" required>
+                <option disabled selected value="">
+                    Please Select the Service you want
+                </option>
 
-        <option value="Dropshipping">Dropshipping</option>
-        <option value="GST Registration">GST Registration</option>
-        <option value="Company Registration">Company Registration</option>
-        <option value="MSME Registration">MSME Registration</option>
-        <option value="Social Media Marketing">Social Media Marketing</option>
-        <option value="FSSAI License">FSSAI License</option>
-        <option value="Pan Card Related">Pan Card Related</option>
-        <option value="LOGO Making">LOGO Making</option>
-        <option value="E-commerce Seller Registration">
-            E-Commerce Seller Registration
-        </option>
-        <option value="Product Listing">Product Listing</option>
-        <option value="Have a Query">Have a Query</option>
+                <option value="Dropshipping">Dropshipping</option>
+                <option value="GST Registration">GST Registration</option>
+                <option value="Company Registration">Company Registration</option>
+                <option value="MSME Registration">MSME Registration</option>
+                <option value="Social Media Marketing">Social Media Marketing</option>
+                <option value="FSSAI License">FSSAI License</option>
+                <option value="Pan Card Related">Pan Card Related</option>
+                <option value="LOGO Making">LOGO Making</option>
+                <option value="E-commerce Seller Registration">
+                    E-Commerce Seller Registration
+                </option>
+                <option value="Product Listing">Product Listing</option>
+                <option value="Have a Query">Have a Query</option>
+            </select>
 
-    </select>
+            <label for="message">Any Message</label>
 
-    <br><br>
+            <textarea
+                id="message"
+                name="message"
+                placeholder="Tell us how we can help..."
+            ></textarea>
 
-    <label for="message">Any Message&nbsp</label>
+            <div class="form-buttons">
+                <input type="reset" value="Reset">
+                <input type="submit" value="Submit">
+            </div>
 
-    <textarea
-        id="message"
-        name="message"
-    ></textarea>
+        </form>
 
-    <br><br><br>
-
-    <input type="reset">
-
-    <br><br>
-
-    <input type="submit" value="Submit">
-
-</form>
+    </div>
+</div>
 
 <script>
 document.getElementById("contact-form").addEventListener("submit", async function(event) {
