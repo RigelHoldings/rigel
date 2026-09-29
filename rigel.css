@@ -344,15 +344,15 @@
 	padding:3px;
 
 }
-.container{
-    width:clamp(13px, 90vw, 2001px);
-    margin:11%;
-    display:flex;
-    flex-wrap:wrap;
-    gap:clamp(12px, 5.2vw, 300px);
-    margin-top:31px;
-    margin-bottom:31px;
+.container {
+    width: min(90%, 1050px);
+    margin: 31px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(20px, 4vw, 70px);
 }
+
 
 .box{
     font-size:clamp(13px, 1vw, 21px);
