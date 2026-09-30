@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="rigel.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Rigel Enterprises </title>
+	<link rel="icon" type="image.jpg" href="Images/Rigellogoicon.jpg">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+	integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"/> <!--Link For icons -->
+
+</head>
+
+<body>
+<!---------------------------------------Header Starts From Here------------------------------------------------>
+<header class="header">
+  <nav class="navbar">
+
+    <a href="rigelhome.html" class="logo">
+      <img src="Images/Rigellogowhite3.jpg" alt="Rigel Logo">
+    </a>
+
+    <!-- Hamburger Button -->
+    <button class="hamburger" id="hamburger">
+      ☲
+    </button>
+
+    <!-- Navigation Links -->
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="rigelhome.html">Rigel</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="dropshipping.html">Dropshipping</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+
+  </nav>
+</header>
+
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+</script>
+
+
+
+<!---------------------------------------Header Ends Here------------------------------------------------>
+
+<main>
+
+<style>
+:root{
+  --r:#e31b23;
+  --n:#101d35;
+  --b:#1769e8;
+  --t:#17213a;
+  --m:#667085;
+}
+
+.profile-page{
+  min-height:calc(100vh - 120px);
+  padding:70px 20px 90px;
+  background:linear-gradient(135deg,#f5f7fb,#eef3fa);
+  font-family:inherit;
+}
+
+.profile-wrap{
+  width:100%;
+  max-width:1050px;
+  margin:auto;
+}
+
+/* HERO */
+
+.profile-hero{
+  text-align:center;
+  margin-bottom:42px;
+}
+
+.profile-badge{
+  display:inline-flex;
+  padding:9px 18px;
+  border-radius:50px;
+  background:#fff;
+  color:var(--r);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.08em;
+  box-shadow:0 8px 25px #101d3510;
+}
+
+.profile-hero h1{
+  margin:20px 0 12px;
+  font-size:clamp(34px,5vw,56px);
+  line-height:1.05;
+  color:var(--n);
+  letter-spacing:-.035em;
+}
+
+.profile-hero h1 span{
+  color:var(--r);
+}
+
+.profile-hero p{
+  max-width:680px;
+  margin:auto;
+  color:var(--m);
+  font-size:17px;
+  line-height:1.7;
+}
+
+/* CARD */
+
+.profile-card{
+  width:100%;
+  max-width:820px;
+  margin:auto;
+  padding:46px;
+  box-sizing:border-box;
+  background:#ffffffd9;
+  border:1px solid #fff;
+  border-radius:34px;
+  box-shadow:0 25px 70px #101d3515;
+  backdrop-filter:blur(18px);
+}
+
+/* PROGRESS */
+
+.progress{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:40px;
+}
+
+.progress-step{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#98a2b3;
+  font-size:13px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.progress-step.active{
+  color:var(--n);
+}
+
+.progress-dot{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#e9edf4;
+}
+
+.progress-step.active .progress-dot{
+  background:var(--n);
+  color:#fff;
+}
+
+.progress-step.done .progress-dot{
+  background:#e9edf4;
+  color:var(--n);
+}
+
+.progress-line{
+  width:55px;
+  height:2px;
+  margin:0 12px;
+  background:#e1e6ee;
+}
+
+/* TITLE */
+
+.form-title{
+  margin-bottom:30px;
+}
+
+.form-title h2{
+  margin:0 0 8px;
+  color:var(--n);
+  font-size:28px;
+}
+
+.form-title p{
+  margin:0;
+  color:var(--m);
+  line-height:1.6;
+}
+
+/* SECTIONS */
+
+.form-section{
+  padding:25px 0;
+  border-top:1px solid #e9edf3;
+}
+
+.form-section:first-of-type{
+  border-top:0;
+  padding-top:0;
+}
+
+.section-title{
+  margin-bottom:20px;
+}
+
+.section-title h3{
+  margin:0 0 5px;
+  color:var(--n);
+  font-size:18px;
+}
+
+.section-title p{
+  margin:0;
+  color:var(--m);
+  font-size:13px;
+  line-height:1.5;
+}
+
+/* GRID */
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.field.full{
+  grid-column:1/-1;
+}
+
+.field label{
+  display:block;
+  margin-bottom:9px;
+  color:var(--t);
+  font-size:14px;
+  font-weight:700;
+}
+
+.field input,
+.field select{
+  width:100%;
+  height:54px;
+  box-sizing:border-box;
+  padding:0 16px;
+  border:1px solid #dce2eb;
+  border-radius:15px;
+  background:#fff;
+  color:var(--t);
+  font:inherit;
+  outline:none;
+  transition:.2s;
+}
+
+.field select{
+  cursor:pointer;
+}
+
+.field input:focus,
+.field select:focus{
+  border-color:var(--b);
+  box-shadow:0 0 0 4px #1769e812;
+}
+
+.field small{
+  display:block;
+  margin-top:7px;
+  color:#98a2b3;
+  font-size:12px;
+  line-height:1.4;
+}
+
+/* RADIO / OPTIONS */
+
+.options{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.option{
+  position:relative;
+}
+
+.option input{
+  position:absolute;
+  opacity:0;
+}
+
+.option label{
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  padding:0 16px;
+  box-sizing:border-box;
+  border:1px solid #dce2eb;
+  border-radius:15px;
+  background:#fff;
+  color:var(--t);
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.option label:hover{
+  border-color:#b8c2d1;
+}
+
+.option input:checked + label{
+  border-color:var(--n);
+  background:#f4f6fa;
+  box-shadow:0 0 0 2px #101d3510;
+}
+
+/* MARKETPLACE BOX */
+
+.marketplace{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.market-card{
+  position:relative;
+}
+
+.market-card input{
+  position:absolute;
+  opacity:0;
+}
+
+.market-card label{
+  display:block;
+  padding:18px;
+  border:1px solid #dce2eb;
+  border-radius:18px;
+  background:#fff;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.market-card label strong{
+  display:block;
+  margin-bottom:5px;
+  color:var(--n);
+  font-size:15px;
+}
+
+.market-card label span{
+  color:var(--m);
+  font-size:12px;
+  line-height:1.4;
+}
+
+.market-card input:checked + label{
+  border-color:var(--n);
+  background:#f4f6fa;
+  box-shadow:0 0 0 2px #101d3510;
+}
+
+/* CONDITIONAL */
+
+.hidden{
+  display:none;
+}
+
+.extra-box{
+  margin-top:18px;
+  padding:20px;
+  border-radius:18px;
+  background:#f7f9fc;
+  border:1px solid #e5e9f0;
+}
+
+/* GST */
+
+.gst-box{
+  margin-top:18px;
+  padding:20px;
+  border-radius:18px;
+  background:#f7f9fc;
+  border:1px solid #e5e9f0;
+}
+
+/* CHECKBOX */
+
+.check{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-top:18px;
+}
+
+.check input{
+  width:18px;
+  height:18px;
+  margin-top:1px;
+  accent-color:var(--n);
+}
+
+.check label{
+  color:var(--m);
+  font-size:13px;
+  line-height:1.5;
+}
+
+/* BUTTON */
+
+.submit-btn{
+  width:100%;
+  min-height:56px;
+  margin-top:30px;
+  padding:15px 22px;
+  border:0;
+  border-radius:16px;
+  background:var(--n);
+  color:#fff;
+  font:inherit;
+  font-weight:700;
+  font-size:15px;
+  cursor:pointer;
+  transition:.2s;
+  box-shadow:0 12px 25px #101d3525;
+}
+
+.submit-btn:hover{
+  transform:translateY(-2px);
+  background:#182b4d;
+}
+
+.note{
+  margin-top:18px;
+  text-align:center;
+  color:#98a2b3;
+  font-size:12px;
+  line-height:1.6;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:700px){
+
+  .profile-page{
+    min-height:0;
+    padding:35px 12px 55px;
+  }
+
+  .profile-hero{
+    margin-bottom:25px;
+    padding:0 8px;
+  }
+
+  .profile-badge{
+    padding:8px 15px;
+    font-size:11px;
+  }
+
+  .profile-hero h1{
+    margin:16px 0 10px;
+    font-size:34px;
+    line-height:1.08;
+  }
+
+  .profile-hero p{
+    font-size:14px;
+    line-height:1.6;
+  }
+
+  .profile-card{
+    padding:25px 18px 24px;
+    border-radius:25px;
+    box-shadow:0 18px 45px #101d3515;
+  }
+
+  .progress{
+    margin-bottom:28px;
+  }
+
+  .progress-step{
+    gap:6px;
+    font-size:10px;
+  }
+
+  .progress-dot{
+    width:29px;
+    height:29px;
+    font-size:11px;
+  }
+
+  .progress-line{
+    flex:1;
+    width:auto;
+    max-width:42px;
+    margin:0 6px;
+  }
+
+  .form-title{
+    margin-bottom:25px;
+  }
+
+  .form-title h2{
+    font-size:23px;
+  }
+
+  .form-title p{
+    font-size:14px;
+  }
+
+  .form-section{
+    padding:22px 0;
+  }
+
+  .section-title h3{
+    font-size:17px;
+  }
+
+  .section-title p{
+    font-size:12px;
+  }
+
+  .form-grid{
+    display:block;
+  }
+
+  .field{
+    margin-bottom:18px;
+  }
+
+  .field.full{
+    grid-column:auto;
+  }
+
+  .field input,
+  .field select{
+    height:53px;
+    border-radius:14px;
+    font-size:15px;
+  }
+
+  .options{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .option label{
+    min-height:54px;
+  }
+
+  .marketplace{
+    grid-template-columns:1fr;
+  }
+
+  .market-card label{
+    padding:16px;
+  }
+
+  .extra-box,
+  .gst-box{
+    padding:16px;
+  }
+
+  .submit-btn{
+    min-height:55px;
+    margin-top:22px;
+    border-radius:14px;
+  }
+}
+
+
+/* VERY SMALL PHONES */
+
+@media(max-width:380px){
+
+  .profile-page{
+    padding-left:9px;
+    padding-right:9px;
+  }
+
+  .profile-card{
+    padding:22px 15px;
+  }
+
+  .profile-hero h1{
+    font-size:30px;
+  }
+
+  .progress-step{
+    font-size:9px;
+  }
+
+  .progress-line{
+    max-width:30px;
+    margin:0 4px;
+  }
+}
+</style>
+
+
+<section class="profile-page">
+
+  <div class="profile-wrap">
+
+    <!-- HERO -->
+
+    <div class="profile-hero">
+
+      <div class="profile-badge">
+        SELLER PROFILE
+      </div>
+
+      <h1>
+        Tell Us About Your <span>Business.</span>
+      </h1>
+
+      <p>
+        This information helps us understand your selling setup
+        and recommend the right way for you to start dropshipping with Rigel.
+      </p>
+
+    </div>
+
+
+    <!-- CARD -->
+
+    <div class="profile-card">
+
+      <!-- PROGRESS -->
+
+      <div class="progress">
+
+        <div class="progress-step done">
+          <div class="progress-dot">✓</div>
+          Details
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step active">
+          <div class="progress-dot">2</div>
+          Profile
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+          <div class="progress-dot">3</div>
+          Plan
+        </div>
+
+      </div>
+
+
+      <div class="form-title">
+
+        <h2>Your Seller Profile</h2>
+
+        <p>
+          Don't worry if you are new to online selling.
+          Just tell us about your current situation.
+        </p>
+
+      </div>
+
+
+      <form id="profileForm">
+
+
+        <!-- BASIC INFORMATION -->
+
+        <div class="form-section">
+
+          <div class="section-title">
+
+            <h3>Basic Information</h3>
+
+            <p>
+              Tell us who will be operating the Rigel seller account.
+            </p>
+
+          </div>
+
+
+          <div class="form-grid">
+
+            <div class="field">
+
+              <label for="sellerName">
+                Full Name
+              </label>
+
+              <input
+                type="text"
+                id="sellerName"
+                name="sellerName"
+                placeholder="Enter your full name"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="company">
+                Company / Business Name
+                <span style="color:#98a2b3;font-weight:400;">(if any)</span>
+              </label>
+
+              <input
+                type="text"
+                id="company"
+                name="company"
+                placeholder="Enter business name"
+              >
+
+            </div>
+
+
+            <div class="field full">
+
+              <label for="state">
+                State
+              </label>
+
+              <select id="state" name="state" required>
+
+                <option value="">Select your state</option>
+
+                <option>Andhra Pradesh</option>
+                <option>Arunachal Pradesh</option>
+                <option>Assam</option>
+                <option>Bihar</option>
+                <option>Chhattisgarh</option>
+                <option>Goa</option>
+                <option>Gujarat</option>
+                <option>Haryana</option>
+                <option>Himachal Pradesh</option>
+                <option>Jharkhand</option>
+                <option>Karnataka</option>
+                <option>Kerala</option>
+                <option>Madhya Pradesh</option>
+                <option>Maharashtra</option>
+                <option>Manipur</option>
+                <option>Meghalaya</option>
+                <option>Mizoram</option>
+                <option>Nagaland</option>
+                <option>Odisha</option>
+                <option>Punjab</option>
+                <option>Rajasthan</option>
+                <option>Sikkim</option>
+                <option>Tamil Nadu</option>
+                <option>Telangana</option>
+                <option>Tripura</option>
+                <option>Uttar Pradesh</option>
+                <option>Uttarakhand</option>
+                <option>West Bengal</option>
+                <option>Delhi</option>
+                <option>Jammu & Kashmir</option>
+                <option>Ladakh</option>
+                <option>Puducherry</option>
+                <option>Chandigarh</option>
+                <option>Andaman & Nicobar Islands</option>
+                <option>Dadra & Nagar Haveli and Daman & Diu</option>
+                <option>Lakshadweep</option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ONLINE SELLING -->
+
+        <div class="form-section">
+
+          <div class="section-title">
+
+            <h3>Where Do You Currently Sell?</h3>
+
+            <p>
+              Select all platforms where you are currently selling products.
+            </p>
+
+          </div>
+
+
+          <div class="marketplace">
+
+            <div class="market-card">
+
+              <input
+                type="checkbox"
+                id="amazonSelling"
+                name="sellingPlatform"
+                value="Amazon"
+              >
+
+              <label for="amazonSelling">
+
+                <strong>Amazon</strong>
+
+                <span>
+                  I currently sell products on Amazon.
+                </span>
+
+              </label>
+
+            </div>
+
+
+            <div class="market-card">
+
+              <input
+                type="checkbox"
+                id="flipkartSelling"
+                name="sellingPlatform"
+                value="Flipkart"
+              >
+
+              <label for="flipkartSelling">
+
+                <strong>Flipkart</strong>
+
+                <span>
+                  I currently sell products on Flipkart.
+                </span>
+
+              </label>
+
+            </div>
+
+
+            <div class="market-card">
+
+              <input
+                type="checkbox"
+                id="otherSelling"
+                name="sellingPlatform"
+                value="Other"
+              >
+
+              <label for="otherSelling">
+
+                <strong>Other Platform</strong>
+
+                <span>
+                  I sell somewhere else online.
+                </span>
+
+              </label>
+
+            </div>
+
+
+            <div class="market-card">
+
+              <input
+                type="checkbox"
+                id="notSelling"
+                name="sellingPlatform"
+                value="Not Currently Selling"
+              >
+
+              <label for="notSelling">
+
+                <strong>Not Selling Online</strong>
+
+                <span>
+                  I am new to online selling.
+                </span>
+
+              </label>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- SELLER ACCOUNTS -->
+
+        <div class="form-section">
+
+          <div class="section-title">
+
+            <h3>Marketplace Accounts</h3>
+
+            <p>
+              Even if you are not currently selling, tell us if you already have seller accounts.
+            </p>
+
+          </div>
+
+
+          <div class="form-grid">
+
+            <div class="field">
+
+              <label for="amazonAccount">
+                Amazon Seller Account
+              </label>
+
+              <select id="amazonAccount" name="amazonAccount" required>
+
+                <option value="">Select one</option>
+                <option>Yes, I have an account</option>
+                <option>No, I don't have one</option>
+                <option>Not sure</option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="flipkartAccount">
+                Flipkart Seller Account
+              </label>
+
+              <select id="flipkartAccount" name="flipkartAccount" required>
+
+                <option value="">Select one</option>
+                <option>Yes, I have an account</option>
+                <option>No, I don't have one</option>
+                <option>Not sure</option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- GST -->
+
+        <div class="form-section">
+
+          <div class="section-title">
+
+            <h3>GST Registration</h3>
+
+            <p>
+              Tell us about your current GST status.
+            </p>
+
+          </div>
+
+
+          <div class="options">
+
+            <div class="option">
+
+              <input
+                type="radio"
+                id="gstYes"
+                name="gst"
+                value="Yes"
+                required
+              >
+
+              <label for="gstYes">
+                Yes, I have GST
+              </label>
+
+            </div>
+
+
+            <div class="option">
+
+              <input
+                type="radio"
+                id="gstNo"
+                name="gst"
+                value="No"
+              >
+
+              <label for="gstNo">
+                No, I don't have GST
+              </label>
+
+            </div>
+
+
+            <div class="option">
+
+              <input
+                type="radio"
+                id="gstApplied"
+                name="gst"
+                value="Applied"
+              >
+
+              <label for="gstApplied">
+                GST application is in process
+              </label>
+
+            </div>
+
+
+            <div class="option">
+
+              <input
+                type="radio"
+                id="gstUnsure"
+                name="gst"
+                value="Not Sure"
+              >
+
+              <label for="gstUnsure">
+                I'm not sure
+              </label>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="gst-box hidden"
+            id="gstNumberBox"
+          >
+
+            <div class="field">
+
+              <label for="gstNumber">
+                GST Number
+              </label>
+
+              <input
+                type="text"
+                id="gstNumber"
+                name="gstNumber"
+                placeholder="Enter your GSTIN"
+                maxlength="15"
+              >
+
+              <small>
+                Enter your GSTIN only if you already have a registered GST number.
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- SOCIAL SELLING -->
+
+        <div class="form-section">
+
+          <div class="section-title">
+
+            <h3>Social Media Selling</h3>
+
+            <p>
+              If GST or marketplace registration is an issue, would you consider selling through social media?
+            </p>
+
+          </div>
+
+
+          <div class="options">
+
+            <div class="option">
+
+              <input
+                type="radio"
+                id="socialYes"
+                name="socialSelling"
+                value="Yes"
+                required
+              >
+
+              <label for="socialYes">
+                Yes, I'm interested
+              </label>
+
+            </div>
+
+
+            <div class="option">
+
+              <input
+                type="radio"
+                id="socialNo"
+                name="socialSelling"
+                value="No"
+              >
+
+              <label for="socialNo">
+                No
+              </label>
+
+            </div>
+
+
+            <div class="option">
+
+              <input
+                type="radio"
+                id="socialMaybe"
+                name="socialSelling"
+                value="Maybe"
+              >
+
+              <label for="socialMaybe">
+                I'd like to know more
+              </label>
+
+            </div>
+
+          </div>
+
+
+          <div class="extra-box hidden" id="socialBox">
+
+            <div class="form-grid">
+
+              <div class="field">
+
+                <label for="instagram">
+                  Instagram Username
+                </label>
+
+                <input
+                  type="text"
+                  id="instagram"
+                  name="instagram"
+                  placeholder="@yourusername"
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <label for="facebook">
+                  Facebook Page / Profile
+                </label>
+
+                <input
+                  type="text"
+                  id="facebook"
+                  name="facebook"
+                  placeholder="Page or profile name"
+                >
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- EXPERIENCE -->
+
+        <div class="form-section">
+
+          <div class="section-title">
+
+            <h3>Your Online Selling Experience</h3>
+
+            <p>
+              This helps us understand how much support you may need.
+            </p>
+
+          </div>
+
+
+          <div class="options">
+
+            <div class="option">
+
+              <input
+                type="radio"
+                id="expNew"
+                name="experience"
+                value="New"
+                required
+              >
+
+              <label for="expNew">
+                I'm completely new
+              </label>
+
+            </div>
+
+
+            <div class="option">
+
+              <input
+                type="radio"
+                id="expBeginner"
+                name="experience"
+                value="Less than 1 year"
+              >
+
+              <label for="expBeginner">
+                Less than 1 year
+              </label>
+
+            </div>
+
+
+            <div class="option">
+
+              <input
+                type="radio"
+                id="exp1to3"
+                name="experience"
+                value="1-3 years"
+              >
+
+              <label for="exp1to3">
+                1–3 years
+              </label>
+
+            </div>
+
+
+            <div class="option">
+
+              <input
+                type="radio"
+                id="exp3plus"
+                name="experience"
+                value="3+ years"
+              >
+
+              <label for="exp3plus">
+                3+ years
+              </label>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT INTEREST -->
+
+        <div class="form-section">
+
+          <div class="section-title">
+
+            <h3>What Would You Like to Sell?</h3>
+
+            <p>
+              Select the product categories that interest you.
+            </p>
+
+          </div>
+
+
+          <div class="marketplace">
+
+            <div class="market-card">
+
+              <input
+                type="checkbox"
+                id="catClothing"
+                name="category"
+                value="Clothing"
+              >
+
+              <label for="catClothing">
+                <strong>Clothing</strong>
+                <span>Fashion and apparel products.</span>
+              </label>
+
+            </div>
+
+
+            <div class="market-card">
+
+              <input
+                type="checkbox"
+                id="catHome"
+                name="category"
+                value="Home Decor"
+              >
+
+              <label for="catHome">
+                <strong>Home & Decor</strong>
+                <span>Products for home and lifestyle.</span>
+              </label>
+
+            </div>
+
+
+            <div class="market-card">
+
+              <input
+                type="checkbox"
+                id="catAccessories"
+                name="category"
+                value="Mobile & Desktop Accessories"
+              >
+
+              <label for="catAccessories">
+                <strong>Mobile & Desktop</strong>
+                <span>Technology and everyday accessories.</span>
+              </label>
+
+            </div>
+
+
+            <div class="market-card">
+
+              <input
+                type="checkbox"
+                id="catOther"
+                name="category"
+                value="Other"
+              >
+
+              <label for="catOther">
+                <strong>Other</strong>
+                <span>I'm interested in other categories.</span>
+              </label>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- FINAL -->
+
+        <div class="check">
+
+          <input
+            type="checkbox"
+            id="accurate"
+            required
+          >
+
+          <label for="accurate">
+            I confirm that the information provided above is accurate
+            to the best of my knowledge.
+          </label>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="submit-btn"
+        >
+          Continue to Choose Your Plan
+        </button>
+
+
+        <div class="note">
+          You can update or provide additional information later if required.
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+
+const profileForm=document.getElementById("profileForm");
+const gstYes=document.getElementById("gstYes");
+const gstNumberBox=document.getElementById("gstNumberBox");
+const gstNumber=document.getElementById("gstNumber");
+
+const socialYes=document.getElementById("socialYes");
+const socialMaybe=document.getElementById("socialMaybe");
+const socialBox=document.getElementById("socialBox");
+
+
+/* GST */
+
+document.querySelectorAll('input[name="gst"]').forEach(el=>{
+
+  el.addEventListener("change",()=>{
+
+    if(gstYes.checked){
+
+      gstNumberBox.classList.remove("hidden");
+      gstNumber.required=true;
+
+    }else{
+
+      gstNumberBox.classList.add("hidden");
+      gstNumber.required=false;
+      gstNumber.value="";
+
+    }
+
+  });
+
+});
+
+
+/* SOCIAL SELLING */
+
+document.querySelectorAll('input[name="socialSelling"]').forEach(el=>{
+
+  el.addEventListener("change",()=>{
+
+    if(socialYes.checked || socialMaybe.checked){
+
+      socialBox.classList.remove("hidden");
+
+    }else{
+
+      socialBox.classList.add("hidden");
+
+    }
+
+  });
+
+});
+
+
+/* FORM */
+
+profileForm.addEventListener("submit",e=>{
+
+  e.preventDefault();
+
+  if(!profileForm.checkValidity()){
+
+    profileForm.reportValidity();
+    return;
+
+  }
+
+  /*
+    SAVE PROFILE DATA HERE.
+
+    AFTER SUCCESS:
+    window.location.href="plans.html";
+  */
+
+  window.location.href="plans.html";
+
+});
+
+</script>
+
+</main>
+
+<!---------------------------------------Footer Starts From Here------------------------------------------------>
+<footer>
+<br><br><br>
+<a id="f1" href="rigelhome.html">Rigel Enterprises</a><br><br><br>
+	<a id="f2"  href="mailto:enterprisesrigel@gmail.com">enterprisesrigel@gmail.com</a><br><br>
+	&copy;2020-2026 by Drall Induatries
+<br><br><br>
+</footer>
+</body>
+</html>
+	
+
+

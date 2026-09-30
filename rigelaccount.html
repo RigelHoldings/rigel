@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="rigel.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Rigel Enterprises </title>
+	<link rel="icon" type="image.jpg" href="Images/Rigellogoicon.jpg">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+	integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"/> <!--Link For icons -->
+
+</head>
+
+<body>
+<!---------------------------------------Header Starts From Here------------------------------------------------>
+<header class="header">
+  <nav class="navbar">
+
+    <a href="rigelhome.html" class="logo">
+      <img src="Images/Rigellogowhite3.jpg" alt="Rigel Logo">
+    </a>
+
+    <!-- Hamburger Button -->
+    <button class="hamburger" id="hamburger">
+      ☲
+    </button>
+
+    <!-- Navigation Links -->
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="rigelhome.html">Rigel</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="dropshipping.html">Dropshipping</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+
+  </nav>
+</header>
+
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+</script>
+
+
+
+<!---------------------------------------Header Ends Here------------------------------------------------>
+
+
+<main>
+
+<style>
+:root{
+  --r:#e31b23;
+  --n:#101d35;
+  --b:#1769e8;
+  --t:#17213a;
+  --m:#667085;
+}
+
+.account-page{
+  min-height:calc(100vh - 120px);
+  padding:70px 20px 90px;
+  background:linear-gradient(135deg,#f5f7fb,#eef3fa);
+  font-family:inherit;
+}
+
+.account-wrap{
+  width:100%;
+  max-width:1050px;
+  margin:auto;
+}
+
+/* HERO */
+
+.account-hero{
+  text-align:center;
+  margin-bottom:42px;
+}
+
+.account-badge{
+  display:inline-flex;
+  padding:9px 18px;
+  border-radius:50px;
+  background:#fff;
+  color:var(--r);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.08em;
+  box-shadow:0 8px 25px #101d3510;
+}
+
+.account-hero h1{
+  margin:20px 0 12px;
+  font-size:clamp(34px,5vw,56px);
+  line-height:1.05;
+  color:var(--n);
+  letter-spacing:-.035em;
+}
+
+.account-hero h1 span{
+  color:var(--r);
+}
+
+.account-hero p{
+  max-width:650px;
+  margin:auto;
+  color:var(--m);
+  font-size:17px;
+  line-height:1.7;
+}
+
+/* CARD */
+
+.account-card{
+  width:100%;
+  max-width:760px;
+  margin:auto;
+  padding:46px;
+  box-sizing:border-box;
+  background:#ffffffd9;
+  border:1px solid #fff;
+  border-radius:34px;
+  box-shadow:0 25px 70px #101d3515;
+  backdrop-filter:blur(18px);
+}
+
+/* PROGRESS */
+
+.progress{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:38px;
+}
+
+.progress-step{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#98a2b3;
+  font-size:13px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.progress-step.active{
+  color:var(--n);
+}
+
+.progress-dot{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#e9edf4;
+}
+
+.progress-step.active .progress-dot{
+  background:var(--n);
+  color:#fff;
+}
+
+.progress-line{
+  width:55px;
+  height:2px;
+  margin:0 12px;
+  background:#e1e6ee;
+}
+
+/* FORM */
+
+.form-title{
+  margin-bottom:28px;
+}
+
+.form-title h2{
+  margin:0 0 8px;
+  color:var(--n);
+  font-size:28px;
+}
+
+.form-title p{
+  margin:0;
+  color:var(--m);
+  line-height:1.6;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+
+.field.full{
+  grid-column:1/-1;
+}
+
+.field label{
+  display:block;
+  margin-bottom:9px;
+  color:var(--t);
+  font-size:14px;
+  font-weight:700;
+}
+
+.field input{
+  width:100%;
+  height:54px;
+  box-sizing:border-box;
+  padding:0 17px;
+  border:1px solid #dce2eb;
+  border-radius:15px;
+  background:#fff;
+  color:var(--t);
+  font:inherit;
+  outline:none;
+  transition:.2s;
+}
+
+.field input:focus{
+  border-color:var(--b);
+  box-shadow:0 0 0 4px #1769e812;
+}
+
+.field small{
+  display:block;
+  margin-top:7px;
+  color:#98a2b3;
+  font-size:12px;
+  line-height:1.4;
+}
+
+/* OTP */
+
+.otp-box{
+  display:none;
+  margin-top:28px;
+  padding:24px;
+  border-radius:22px;
+  background:#f7f9fc;
+  border:1px solid #e5e9f0;
+}
+
+.otp-box.show{
+  display:block;
+}
+
+.otp-title{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  margin-bottom:18px;
+}
+
+.otp-icon{
+  width:42px;
+  height:42px;
+  flex:none;
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  background:var(--n);
+  color:#fff;
+  font-size:18px;
+}
+
+.otp-title strong{
+  display:block;
+  color:var(--n);
+  margin-bottom:4px;
+}
+
+.otp-title span{
+  color:var(--m);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.otp-input{
+  text-align:center;
+  letter-spacing:.35em;
+  font-size:21px!important;
+  font-weight:700;
+}
+
+.otp-actions{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-top:14px;
+}
+
+.resend{
+  border:0;
+  background:none;
+  color:var(--b);
+  font:inherit;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.resend:disabled{
+  color:#98a2b3;
+  cursor:not-allowed;
+}
+
+/* BUTTON */
+
+.submit-btn{
+  width:100%;
+  min-height:56px;
+  margin-top:28px;
+  padding:15px 22px;
+  border:0;
+  border-radius:16px;
+  background:var(--n);
+  color:#fff;
+  font:inherit;
+  font-weight:700;
+  font-size:15px;
+  cursor:pointer;
+  transition:.2s;
+  box-shadow:0 12px 25px #101d3525;
+}
+
+.submit-btn:hover{
+  transform:translateY(-2px);
+  background:#182b4d;
+}
+
+.submit-btn.verify{
+  background:var(--r);
+}
+
+.note{
+  margin-top:20px;
+  text-align:center;
+  color:#98a2b3;
+  font-size:12px;
+  line-height:1.6;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:700px){
+
+  .account-page{
+    min-height:0;
+    padding:35px 12px 55px;
+  }
+
+  .account-wrap{
+    width:100%;
+  }
+
+  /* HERO */
+
+  .account-hero{
+    margin-bottom:25px;
+    padding:0 8px;
+  }
+
+  .account-badge{
+    padding:8px 15px;
+    font-size:11px;
+  }
+
+  .account-hero h1{
+    margin:16px 0 10px;
+    font-size:34px;
+    line-height:1.08;
+    letter-spacing:-.025em;
+  }
+
+  .account-hero p{
+    font-size:14px;
+    line-height:1.6;
+  }
+
+  /* CARD */
+
+  .account-card{
+    padding:25px 18px 24px;
+    border-radius:25px;
+    box-shadow:0 18px 45px #101d3515;
+  }
+
+  /* PROGRESS */
+
+  .progress{
+    margin-bottom:28px;
+    width:100%;
+  }
+
+  .progress-step{
+    gap:6px;
+    font-size:10px;
+  }
+
+  .progress-dot{
+    width:29px;
+    height:29px;
+    font-size:11px;
+  }
+
+  .progress-line{
+    flex:1;
+    width:auto;
+    max-width:42px;
+    margin:0 6px;
+  }
+
+  /* FORM TITLE */
+
+  .form-title{
+    margin-bottom:22px;
+  }
+
+  .form-title h2{
+    font-size:23px;
+    line-height:1.2;
+  }
+
+  .form-title p{
+    font-size:14px;
+    line-height:1.55;
+  }
+
+  /* FORM */
+
+  .form-grid{
+    display:block;
+  }
+
+  .field{
+    margin-bottom:18px;
+  }
+
+  .field.full{
+    grid-column:auto;
+  }
+
+  .field label{
+    margin-bottom:8px;
+    font-size:13px;
+  }
+
+  .field input{
+    height:53px;
+    padding:0 15px;
+    border-radius:14px;
+    font-size:15px;
+  }
+
+  .field small{
+    font-size:11px;
+    margin-top:6px;
+  }
+
+  /* OTP */
+
+  .otp-box{
+    margin-top:5px;
+    padding:18px 15px;
+    border-radius:18px;
+  }
+
+  .otp-title{
+    gap:10px;
+    margin-bottom:15px;
+  }
+
+  .otp-icon{
+    width:38px;
+    height:38px;
+    border-radius:11px;
+    font-size:16px;
+  }
+
+  .otp-title strong{
+    font-size:14px;
+  }
+
+  .otp-title span{
+    font-size:12px;
+    line-height:1.5;
+  }
+
+  .otp-input{
+    height:55px!important;
+    font-size:20px!important;
+    letter-spacing:.28em;
+  }
+
+  .otp-actions{
+    margin-top:12px;
+    align-items:flex-start;
+  }
+
+  .otp-actions span{
+    font-size:11px!important;
+    line-height:1.4;
+  }
+
+  .resend{
+    font-size:12px;
+    white-space:nowrap;
+  }
+
+  /* BUTTON */
+
+  .submit-btn{
+    min-height:55px;
+    margin-top:20px;
+    border-radius:14px;
+    font-size:14px;
+  }
+
+  .note{
+    margin-top:16px;
+    font-size:11px;
+    line-height:1.55;
+  }
+}
+
+
+/* VERY SMALL PHONES */
+
+@media(max-width:380px){
+
+  .account-page{
+    padding-left:9px;
+    padding-right:9px;
+  }
+
+  .account-card{
+    padding:22px 15px;
+  }
+
+  .account-hero h1{
+    font-size:30px;
+  }
+
+  .progress-step{
+    font-size:9px;
+  }
+
+  .progress-line{
+    max-width:30px;
+    margin:0 4px;
+  }
+
+  .otp-actions{
+    flex-direction:column;
+    gap:7px;
+  }
+
+  .resend{
+    padding:0;
+  }
+}
+</style>
+
+
+<section class="account-page">
+
+  <div class="account-wrap">
+
+    <!-- HERO -->
+
+    <div class="account-hero">
+
+      <div class="account-badge">
+        RIGEL ACCOUNT
+      </div>
+
+      <h1>
+        Create Your <span>Rigel Account.</span>
+      </h1>
+
+      <p>
+        Start your journey with Rigel Dropshipping.
+        Enter your basic details to create your account and continue to the next step.
+      </p>
+
+    </div>
+
+
+    <!-- CARD -->
+
+    <div class="account-card">
+
+      <!-- PROGRESS -->
+
+      <div class="progress">
+
+        <div class="progress-step active">
+          <div class="progress-dot">1</div>
+          Details
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+          <div class="progress-dot">2</div>
+          Profile
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+          <div class="progress-dot">3</div>
+          Plan
+        </div>
+
+      </div>
+
+
+      <!-- TITLE -->
+
+      <div class="form-title">
+
+        <h2>Tell us about yourself</h2>
+
+        <p>
+          Enter your details below. We'll use your email to verify your account.
+        </p>
+
+      </div>
+
+
+      <!-- FORM -->
+
+      <form id="accountForm">
+
+        <div class="form-grid">
+
+          <div class="field full">
+
+            <label for="name">
+              Full Name
+            </label>
+
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your full name"
+              autocomplete="name"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="phone">
+              Mobile Number
+            </label>
+
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="10-digit mobile number"
+              inputmode="numeric"
+              maxlength="10"
+              pattern="[0-9]{10}"
+              autocomplete="tel"
+              required
+            >
+
+            <small>
+              Enter the mobile number you'll use for your Rigel account.
+            </small>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="email">
+              Email Address
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            >
+
+            <small>
+              A verification code will be sent to this email.
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <!-- OTP -->
+
+        <div class="otp-box" id="otpBox">
+
+          <div class="otp-title">
+
+            <div class="otp-icon">✓</div>
+
+            <div>
+
+              <strong>
+                Verify your details
+              </strong>
+
+              <span>
+                Enter the OTP sent to your email and confirm your mobile number.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <input
+            class="field input otp-input"
+            type="text"
+            id="otp"
+            name="otp"
+            placeholder="Enter 6-digit OTP"
+            inputmode="numeric"
+            maxlength="6"
+            autocomplete="one-time-code"
+          >
+
+
+          <div class="otp-actions">
+
+            <span style="color:#98a2b3;">
+              Code expires in 10 minutes
+            </span>
+
+            <button
+              type="button"
+              class="resend"
+              id="resendBtn"
+              disabled
+            >
+              Resend OTP
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- BUTTON -->
+
+        <button
+          type="button"
+          class="submit-btn"
+          id="mainBtn"
+        >
+          Send Verification Code
+        </button>
+
+
+        <div class="note">
+          By continuing, you agree to provide accurate information
+          for your Rigel account registration.
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+const form=document.getElementById("accountForm"),
+      otpBox=document.getElementById("otpBox"),
+      mainBtn=document.getElementById("mainBtn"),
+      resendBtn=document.getElementById("resendBtn"),
+      otp=document.getElementById("otp");
+
+let otpSent=false,timer;
+
+mainBtn.addEventListener("click",()=>{
+
+  if(!form.checkValidity()){
+    form.reportValidity();
+    return;
+  }
+
+  if(!otpSent){
+
+    /* EMAIL OTP WILL BE SENT HERE */
+
+    otpBox.classList.add("show");
+    mainBtn.textContent="Verify & Continue";
+    mainBtn.classList.add("verify");
+    otpSent=true;
+
+    startTimer();
+    otp.focus();
+
+  }else{
+
+    if(otp.value.length!==6){
+      alert("Please enter the 6-digit verification code.");
+      otp.focus();
+      return;
+    }
+
+    /* OTP WILL BE VERIFIED HERE */
+
+    window.location.href="create-profile.html";
+
+  }
+
+});
+
+
+function startTimer(){
+
+  let seconds=60;
+
+  resendBtn.disabled=true;
+  resendBtn.textContent=`Resend OTP (${seconds}s)`;
+
+  clearInterval(timer);
+
+  timer=setInterval(()=>{
+
+    seconds--;
+
+    resendBtn.textContent=`Resend OTP (${seconds}s)`;
+
+    if(seconds<=0){
+
+      clearInterval(timer);
+
+      resendBtn.disabled=false;
+      resendBtn.textContent="Resend OTP";
+
+    }
+
+  },1000);
+
+}
+
+
+resendBtn.addEventListener("click",()=>{
+
+  /* SEND EMAIL OTP AGAIN HERE */
+
+  startTimer();
+
+});
+</script>
+
+</main>
+
+<!---------------------------------------Footer Starts From Here------------------------------------------------>
+<footer>
+<br><br><br>
+<a id="f1" href="rigelhome.html">Rigel Enterprises</a><br><br><br>
+	<a id="f2"  href="mailto:enterprisesrigel@gmail.com">enterprisesrigel@gmail.com</a><br><br>
+	&copy;2020-2026 by Drall Induatries
+<br><br><br>
+</footer>
+</body>
+</html>
+	
+

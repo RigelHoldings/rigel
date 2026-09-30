@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="rigel.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Rigel Enterprises </title>
+	<link rel="icon" type="image.jpg" href="Images/Rigellogoicon.jpg">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+	integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"/> <!--Link For icons -->
+
+</head>
+
+<body>
+<!---------------------------------------Header Starts From Here------------------------------------------------>
+<header class="header">
+  <nav class="navbar">
+
+    <a href="rigelhome.html" class="logo">
+      <img src="Images/Rigellogowhite3.jpg" alt="Rigel Logo">
+    </a>
+
+    <!-- Hamburger Button -->
+    <button class="hamburger" id="hamburger">
+      ☲
+    </button>
+
+    <!-- Navigation Links -->
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="rigelhome.html">Rigel</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="dropshipping.html">Dropshipping</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+
+  </nav>
+</header>
+
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+</script>
+
+
+
+<!---------------------------------------Header Ends Here------------------------------------------------>
+
+<main>
+
+<style>
+:root{
+  --r:#e31b23;
+  --n:#101d35;
+  --b:#1769e8;
+  --t:#17213a;
+  --m:#667085;
+}
+
+.plans-page{
+  min-height:calc(100vh - 120px);
+  padding:70px 20px 90px;
+  background:linear-gradient(135deg,#f5f7fb,#eef3fa);
+  font-family:inherit;
+}
+
+.plans-wrap{
+  width:100%;
+  max-width:1180px;
+  margin:auto;
+}
+
+/* HERO */
+
+.plans-hero{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.plans-badge{
+  display:inline-flex;
+  padding:9px 18px;
+  border-radius:50px;
+  background:#fff;
+  color:var(--r);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.08em;
+  box-shadow:0 8px 25px #101d3510;
+}
+
+.plans-hero h1{
+  margin:20px 0 12px;
+  font-size:clamp(36px,5vw,58px);
+  line-height:1.05;
+  color:var(--n);
+  letter-spacing:-.04em;
+}
+
+.plans-hero h1 span{
+  color:var(--r);
+}
+
+.plans-hero p{
+  max-width:700px;
+  margin:auto;
+  color:var(--m);
+  font-size:17px;
+  line-height:1.7;
+}
+
+
+/* PROGRESS */
+
+.progress{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:42px;
+}
+
+.progress-step{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#98a2b3;
+  font-size:13px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.progress-step.active{
+  color:var(--n);
+}
+
+.progress-dot{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#e9edf4;
+}
+
+.progress-step.active .progress-dot{
+  background:var(--n);
+  color:#fff;
+}
+
+.progress-step.done .progress-dot{
+  background:#e9edf4;
+  color:var(--n);
+}
+
+.progress-line{
+  width:55px;
+  height:2px;
+  margin:0 12px;
+  background:#e1e6ee;
+}
+
+
+/* PLAN GRID */
+
+.plans-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:16px;
+  align-items:stretch;
+}
+
+
+/* PLAN */
+
+.plan{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  padding:28px 22px 24px;
+  box-sizing:border-box;
+  background:#ffffffd9;
+  border:1px solid #fff;
+  border-radius:27px;
+  box-shadow:0 20px 55px #101d3512;
+  backdrop-filter:blur(18px);
+  transition:.25s;
+}
+
+.plan:hover{
+  transform:translateY(-6px);
+  box-shadow:0 28px 65px #101d3520;
+}
+
+
+/* FREE */
+
+.plan.free{
+  background:#f9fafc;
+}
+
+
+/* FEATURED */
+
+.plan.featured{
+  border:2px solid var(--r);
+  padding:27px 21px 23px;
+}
+
+.featured-badge{
+  position:absolute;
+  top:-13px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:6px 15px;
+  border-radius:30px;
+  background:var(--r);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.08em;
+  white-space:nowrap;
+}
+
+
+/* PLAN CONTENT */
+
+.plan-name{
+  color:var(--n);
+  font-size:20px;
+  font-weight:800;
+}
+
+.plan-desc{
+  min-height:42px;
+  margin-top:7px;
+  color:var(--m);
+  font-size:12px;
+  line-height:1.45;
+}
+
+.price{
+  margin:22px 0 20px;
+  color:var(--n);
+  font-size:32px;
+  font-weight:800;
+  letter-spacing:-.04em;
+}
+
+.price span{
+  color:var(--m);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0;
+}
+
+.price sup{
+  font-size:14px;
+  vertical-align:top;
+  position:relative;
+  top:3px;
+}
+
+.plan-divider{
+  height:1px;
+  margin-bottom:20px;
+  background:#e9edf3;
+}
+
+
+/* FEATURES */
+
+.feature-title{
+  margin-bottom:14px;
+  color:var(--n);
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+
+.features{
+  flex:1;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.features li{
+  position:relative;
+  padding-left:22px;
+  margin-bottom:14px;
+  color:var(--t);
+  font-size:12px;
+  line-height:1.45;
+}
+
+.features li::before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  top:0;
+  color:var(--r);
+  font-weight:900;
+  font-size:13px;
+}
+
+
+/* GUARANTEE */
+
+.guarantee{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin-top:5px;
+  padding:9px 10px;
+  border-radius:10px;
+  background:#f7f9fc;
+  color:var(--m);
+  font-size:10px;
+  line-height:1.3;
+}
+
+.guarantee strong{
+  color:var(--n);
+}
+
+
+/* BUTTON */
+
+.plan-btn{
+  width:100%;
+  min-height:48px;
+  margin-top:20px;
+  border:1px solid #dce2eb;
+  border-radius:13px;
+  background:#fff;
+  color:var(--n);
+  font:inherit;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.plan-btn:hover{
+  background:var(--n);
+  border-color:var(--n);
+  color:#fff;
+}
+
+.featured .plan-btn{
+  background:var(--r);
+  border-color:var(--r);
+  color:#fff;
+}
+
+.featured .plan-btn:hover{
+  background:#c9161d;
+}
+
+
+/* BOTTOM NOTE */
+
+.plan-note{
+  max-width:750px;
+  margin:30px auto 0;
+  text-align:center;
+  color:#98a2b3;
+  font-size:12px;
+  line-height:1.6;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media(max-width:1050px){
+
+  .plans-grid{
+    grid-template-columns:repeat(2,1fr);
+    max-width:780px;
+    margin:auto;
+  }
+
+  .plan:last-child{
+    grid-column:1/-1;
+    max-width:380px;
+    width:100%;
+    margin:auto;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:700px){
+
+  .plans-page{
+    min-height:0;
+    padding:35px 12px 55px;
+  }
+
+  .plans-hero{
+    margin-bottom:25px;
+    padding:0 8px;
+  }
+
+  .plans-badge{
+    padding:8px 15px;
+    font-size:11px;
+  }
+
+  .plans-hero h1{
+    margin:16px 0 10px;
+    font-size:34px;
+    line-height:1.08;
+  }
+
+  .plans-hero p{
+    font-size:14px;
+    line-height:1.6;
+  }
+
+
+  /* PROGRESS */
+
+  .progress{
+    margin-bottom:30px;
+  }
+
+  .progress-step{
+    gap:6px;
+    font-size:10px;
+  }
+
+  .progress-dot{
+    width:29px;
+    height:29px;
+    font-size:11px;
+  }
+
+  .progress-line{
+    flex:1;
+    width:auto;
+    max-width:42px;
+    margin:0 6px;
+  }
+
+
+  /* PLANS */
+
+  .plans-grid{
+    display:flex;
+    flex-direction:column;
+    gap:17px;
+    max-width:500px;
+  }
+
+  .plan,
+  .plan.featured{
+    width:100%;
+    max-width:none;
+    padding:25px 22px 22px;
+    border-radius:24px;
+  }
+
+  .plan.featured{
+    padding:24px 21px 21px;
+  }
+
+  .plan:last-child{
+    width:100%;
+    max-width:none;
+  }
+
+  .plan-name{
+    font-size:21px;
+  }
+
+  .plan-desc{
+    min-height:auto;
+    max-width:290px;
+  }
+
+  .price{
+    margin:18px 0;
+    font-size:34px;
+  }
+
+  .features li{
+    font-size:13px;
+    margin-bottom:12px;
+  }
+
+  .guarantee{
+    font-size:11px;
+  }
+
+  .plan-btn{
+    min-height:52px;
+    font-size:14px;
+  }
+
+  .plan-note{
+    margin-top:22px;
+    padding:0 8px;
+    font-size:11px;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media(max-width:380px){
+
+  .plans-page{
+    padding-left:9px;
+    padding-right:9px;
+  }
+
+  .plans-hero h1{
+    font-size:30px;
+  }
+
+  .progress-step{
+    font-size:9px;
+  }
+
+  .progress-line{
+    max-width:30px;
+    margin:0 4px;
+  }
+
+  .plan,
+  .plan.featured{
+    padding-left:18px;
+    padding-right:18px;
+  }
+}
+</style>
+
+
+<section class="plans-page">
+
+  <div class="plans-wrap">
+
+
+    <!-- HERO -->
+
+    <div class="plans-hero">
+
+      <div class="plans-badge">
+        RIGEL DROPSHIPPING
+      </div>
+
+      <h1>
+        Choose Your <span>Plan.</span>
+      </h1>
+
+      <p>
+        Choose the Rigel membership that matches the level of
+        support you need to start and grow your online business.
+      </p>
+
+    </div>
+
+
+    <!-- PROGRESS -->
+
+    <div class="progress">
+
+      <div class="progress-step done">
+        <div class="progress-dot">✓</div>
+        Details
+      </div>
+
+      <div class="progress-line"></div>
+
+      <div class="progress-step done">
+        <div class="progress-dot">✓</div>
+        Profile
+      </div>
+
+      <div class="progress-line"></div>
+
+      <div class="progress-step active">
+        <div class="progress-dot">3</div>
+        Plan
+      </div>
+
+    </div>
+
+
+    <!-- PLANS -->
+
+    <div class="plans-grid">
+
+
+      <!-- FREE -->
+
+      <div class="plan free">
+
+        <div class="plan-name">
+          Free
+        </div>
+
+        <div class="plan-desc">
+          Get started with Rigel and explore the dropshipping model.
+        </div>
+
+        <div class="price">
+          ₹0
+          <span>/ forever</span>
+        </div>
+
+        <div class="plan-divider"></div>
+
+        <div class="feature-title">
+          Included
+        </div>
+
+        <ul class="features">
+
+          <li>
+            Create your Rigel account
+          </li>
+
+          <li>
+            Explore the Rigel platform
+          </li>
+
+          <li>
+            Learn about the dropshipping model
+          </li>
+
+        </ul>
+
+        <button
+          type="button"
+          class="plan-btn"
+          data-plan="Free"
+        >
+          Choose Free
+        </button>
+
+      </div>
+
+
+      <!-- SILVER -->
+
+      <div class="plan">
+
+        <div class="plan-name">
+          Silver
+        </div>
+
+        <div class="plan-desc">
+          A complete starting package for selling Rigel products online.
+        </div>
+
+        <div class="price">
+          ₹1,299<sup>*</sup>
+        </div>
+
+        <div class="plan-divider"></div>
+
+        <div class="feature-title">
+          Main Benefits
+        </div>
+
+        <ul class="features">
+
+          <li>
+            Access to our whole inventory
+          </li>
+
+          <li>
+            We will list the products
+          </li>
+
+          <li>
+            We will promote the products
+          </li>
+
+          <li>
+            Packaging cost included
+          </li>
+
+        </ul>
+
+        <div class="guarantee">
+          ✓ <strong>90 Days</strong> Money Back Guarantee
+        </div>
+
+        <button
+          type="button"
+          class="plan-btn"
+          data-plan="Silver"
+        >
+          Choose Silver
+        </button>
+
+      </div>
+
+
+      <!-- GOLD -->
+
+      <div class="plan featured">
+
+        <div class="featured-badge">
+          GOLD MEMBERSHIP
+        </div>
+
+        <div class="plan-name">
+          Gold
+        </div>
+
+        <div class="plan-desc">
+          Includes seller account registration in addition to the Silver benefits.
+        </div>
+
+        <div class="price">
+          ₹2,599<sup>*</sup>
+        </div>
+
+        <div class="plan-divider"></div>
+
+        <div class="feature-title">
+          Main Benefits
+        </div>
+
+        <ul class="features">
+
+          <li>
+            Access to our whole inventory
+          </li>
+
+          <li>
+            We will register the seller account
+          </li>
+
+          <li>
+            We will list the products
+          </li>
+
+          <li>
+            We will promote the products
+          </li>
+
+          <li>
+            Packaging cost included
+          </li>
+
+        </ul>
+
+        <div class="guarantee">
+          ✓ <strong>90 Days</strong> Money Back Guarantee
+        </div>
+
+        <button
+          type="button"
+          class="plan-btn"
+          data-plan="Gold"
+        >
+          Choose Gold
+        </button>
+
+      </div>
+
+
+      <!-- PLATINUM -->
+
+      <div class="plan">
+
+        <div class="plan-name">
+          Platinum
+        </div>
+
+        <div class="plan-desc">
+          A complete setup including GST and seller account registration.
+        </div>
+
+        <div class="price">
+          ₹3,599<sup>*</sup>
+        </div>
+
+        <div class="plan-divider"></div>
+
+        <div class="feature-title">
+          Main Benefits
+        </div>
+
+        <ul class="features">
+
+          <li>
+            Access to our whole inventory
+          </li>
+
+          <li>
+            We will register the GST
+          </li>
+
+          <li>
+            We will register the seller account
+          </li>
+
+          <li>
+            We will list the products
+          </li>
+
+          <li>
+            We will promote the products
+          </li>
+
+          <li>
+            Packaging cost included
+          </li>
+
+        </ul>
+
+        <div class="guarantee">
+          ✓ <strong>90 Days</strong> Money Back Guarantee
+        </div>
+
+        <button
+          type="button"
+          class="plan-btn"
+          data-plan="Platinum"
+        >
+          Choose Platinum
+        </button>
+
+      </div>
+
+
+      <!-- PLATINUM PRIME -->
+
+      <div class="plan">
+
+        <div class="plan-name">
+          Platinum Prime
+        </div>
+
+        <div class="plan-desc">
+          The most comprehensive setup, including a GST address provided by Rigel.
+        </div>
+
+        <div class="price">
+          ₹9,599<sup>*</sup>
+        </div>
+
+        <div class="plan-divider"></div>
+
+        <div class="feature-title">
+          Main Benefits
+        </div>
+
+        <ul class="features">
+
+          <li>
+            Access to our whole inventory
+          </li>
+
+          <li>
+            We will provide address for GST
+          </li>
+
+          <li>
+            We will register the GST
+          </li>
+
+          <li>
+            We will register the seller account
+          </li>
+
+          <li>
+            We will list the products
+          </li>
+
+          <li>
+            We will promote the products
+          </li>
+
+          <li>
+            Packaging cost included
+          </li>
+
+        </ul>
+
+        <div class="guarantee">
+          ✓ <strong>90 Days</strong> Money Back Guarantee
+        </div>
+
+        <button
+          type="button"
+          class="plan-btn"
+          data-plan="Platinum Prime"
+        >
+          Choose Platinum Prime
+        </button>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="plan-note">
+      * Membership benefits, pricing, eligibility and applicable terms
+      are subject to Rigel Enterprises' current policies.
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+
+document.querySelectorAll(".plan-btn").forEach(button=>{
+
+  button.addEventListener("click",()=>{
+
+    const plan=button.dataset.plan;
+
+    /*
+      SAVE SELECTED PLAN
+
+      This will later be connected to the
+      seller's account/profile data.
+
+      Example:
+
+      localStorage.setItem("rigelPlan",plan);
+
+      Then continue to Page 5:
+    */
+
+    localStorage.setItem("rigelPlan",plan);
+
+    window.location.href="payment.html";
+
+  });
+
+});
+
+</script>
+
+</main>
+<!---------------------------------------Footer Starts From Here------------------------------------------------>
+<footer>
+<br><br><br>
+<a id="f1" href="rigelhome.html">Rigel Enterprises</a><br><br><br>
+	<a id="f2"  href="mailto:enterprisesrigel@gmail.com">enterprisesrigel@gmail.com</a><br><br>
+	&copy;2020-2026 by Drall Induatries
+<br><br><br>
+</footer>
+</body>
+</html>
+	
+
+
