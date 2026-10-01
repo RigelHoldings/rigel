@@ -1064,115 +1064,74 @@
         </div>
 
 
-        <!-- SOCIAL SELLING -->
+<!-- SOCIAL SELLING -->
 
-        <div class="form-section">
+<div class="form-section">
 
-          <div class="section-title">
+  <div class="section-title">
 
-            <h3>Social Media Selling</h3>
+    <h3>Social Media Selling</h3>
 
-            <p>
-              If GST or marketplace registration is an issue, would you consider selling through social media?
-            </p>
+    <p>
+      If GST or marketplace registration is an issue, would you consider selling through social media?
+    </p>
 
-          </div>
-
-
-          <div class="options">
-
-            <div class="option">
-
-              <input
-                type="radio"
-                id="socialYes"
-                name="socialSelling"
-                value="Yes"
-                required
-              >
-
-              <label for="socialYes">
-                Yes, I'm interested
-              </label>
-
-            </div>
+  </div>
 
 
-            <div class="option">
+  <div class="options">
 
-              <input
-                type="radio"
-                id="socialNo"
-                name="socialSelling"
-                value="No"
-              >
+    <div class="option">
 
-              <label for="socialNo">
-                No
-              </label>
+      <input
+        type="radio"
+        id="socialYes"
+        name="socialSelling"
+        value="Yes"
+        required
+      >
 
-            </div>
+      <label for="socialYes">
+        Yes, I'm interested
+      </label>
 
-
-            <div class="option">
-
-              <input
-                type="radio"
-                id="socialMaybe"
-                name="socialSelling"
-                value="Maybe"
-              >
-
-              <label for="socialMaybe">
-                I'd like to know more
-              </label>
-
-            </div>
-
-          </div>
+    </div>
 
 
-         <div class="extra-box hidden" id="socialBox">
+    <div class="option">
 
-            <div class="form-grid">
+      <input
+        type="radio"
+        id="socialNo"
+        name="socialSelling"
+        value="No"
+      >
 
-              <div class="field">
+      <label for="socialNo">
+        No
+      </label>
 
-                <label for="instagram">
-                  Instagram Username
-                </label>
-
-                <input
-                  type="text"
-                  id="instagram"
-                  name="instagram"
-                  placeholder="@yourusername"
-                >
-
-              </div>
+    </div>
 
 
-              <div class="field">
+    <div class="option">
 
-                <label for="facebook">
-                  Facebook Page / Profile
-                </label>
+      <input
+        type="radio"
+        id="socialMaybe"
+        name="socialSelling"
+        value="Maybe"
+      >
 
-                <input
-                  type="text"
-                  id="facebook"
-                  name="facebook"
-                  placeholder="Page or profile name"
-                >
+      <label for="socialMaybe">
+        I'd like to know more
+      </label>
 
-              </div>
-			
-            </div>
+    </div>
 
-          </div>
+  </div>
 
-        </div>
-
+</div>
 
         <!-- EXPERIENCE -->
 
@@ -1371,7 +1330,7 @@
           type="submit"
           class="submit-btn"
         >
-          Start Now
+          Continue to Choose Your Plan
         </button>
 
 
@@ -1399,10 +1358,6 @@ const gstYes = document.getElementById("gstYes");
 const gstNumberBox = document.getElementById("gstNumberBox");
 const gstNumber = document.getElementById("gstNumber");
 
-const socialYes = document.getElementById("socialYes");
-const socialMaybe = document.getElementById("socialMaybe");
-const socialBox = document.getElementById("socialBox");
-
 const submitButton = profileForm.querySelector(".submit-btn");
 
 let submitting = false;
@@ -1426,32 +1381,6 @@ document.querySelectorAll('input[name="gst"]').forEach(el => {
       gstNumberBox.classList.add("hidden");
       gstNumber.required = false;
       gstNumber.value = "";
-
-    }
-
-  });
-
-});
-
-
-/* ---------------------------------------
-   SOCIAL SELLING
---------------------------------------- */
-
-document.querySelectorAll('input[name="socialSelling"]').forEach(el => {
-
-  el.addEventListener("change", () => {
-
-    if (socialYes.checked || socialMaybe.checked) {
-
-      socialBox.classList.remove("hidden");
-
-    } else {
-
-      socialBox.classList.add("hidden");
-
-      document.getElementById("instagram").value = "";
-      document.getElementById("facebook").value = "";
 
     }
 
@@ -1606,6 +1535,7 @@ profileForm.addEventListener("submit", async e => {
 
 </script>
 ```
+
 
 </main>
 
