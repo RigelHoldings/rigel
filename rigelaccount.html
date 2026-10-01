@@ -796,6 +796,7 @@
 
 <script>
 const API_BASE = "https://rigel-otp.enterprisesrigel.workers.dev";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xoevbojd";
 
 const form = document.getElementById("accountForm");
 const otpBox = document.getElementById("otpBox");
@@ -813,7 +814,7 @@ let requestInProgress = false;
 
 
 /* ---------------------------------------
-   HELPER: API RESPONSE
+   API RESPONSE HANDLER
 --------------------------------------- */
 
 async function getResponseData(response) {
@@ -899,6 +900,65 @@ async function verifyOTP() {
 
 
 /* ---------------------------------------
+   SUBMIT VERIFIED ACCOUNT TO FORMSPREE
+--------------------------------------- */
+
+async function submitToFormspree() {
+
+  const formData = new FormData();
+
+  formData.append("name", nameInput.value.trim());
+  formData.append("phone", phoneInput.value.trim());
+  formData.append("email", emailInput.value.trim().toLowerCase());
+
+  /*
+   * These fields make the Formspree submission
+   * easier to identify in your inbox/dashboard.
+   */
+  formData.append("_subject", "New Rigel Account Registration");
+  formData.append("email_verified", "Yes");
+  formData.append("source", "Rigel Account Registration Page");
+
+  const response = await fetch(FORMSPREE_ENDPOINT, {
+    method: "POST",
+
+    headers: {
+      "Accept": "application/json"
+    },
+
+    body: formData
+  });
+
+  let data = {};
+
+  try {
+    data = await response.json();
+  } catch (error) {
+    /*
+     * Some successful Formspree responses may not
+     * contain JSON, so don't automatically treat
+     * that as a failure.
+     */
+  }
+
+  if (!response.ok) {
+
+    if (data && data.errors && data.errors.length) {
+      throw new Error(
+        data.errors.map(error => error.message).join(", ")
+      );
+    }
+
+    throw new Error(
+      "Your account was verified, but we could not save your registration details. Please try again."
+    );
+  }
+
+  return data;
+}
+
+
+/* ---------------------------------------
    START OTP TIMER
 --------------------------------------- */
 
@@ -932,7 +992,7 @@ function startTimer() {
 
 
 /* ---------------------------------------
-   SET BUTTON LOADING STATE
+   BUTTON LOADING STATE
 --------------------------------------- */
 
 function setLoading(button, loading, loadingText) {
@@ -965,9 +1025,9 @@ mainBtn.addEventListener("click", async () => {
   }
 
 
-  /* -----------------------------------
-     STEP 1: SEND OTP
-  ----------------------------------- */
+  /* =======================================
+     STEP 1 — SEND OTP
+  ======================================= */
 
   if (!otpSent) {
 
@@ -997,8 +1057,8 @@ mainBtn.addEventListener("click", async () => {
       mainBtn.disabled = false;
 
       /*
-       * Prevent the user from changing the email
-       * after the OTP has been sent.
+       * Prevent changing the email after the OTP
+       * has been sent.
        */
       emailInput.readOnly = true;
 
@@ -1022,9 +1082,9 @@ mainBtn.addEventListener("click", async () => {
   }
 
 
-  /* -----------------------------------
-     STEP 2: VERIFY OTP
-  ----------------------------------- */
+  /* =======================================
+     STEP 2 — VERIFY OTP
+  ======================================= */
 
   const code = otpInput.value.trim();
 
@@ -1047,12 +1107,27 @@ mainBtn.addEventListener("click", async () => {
 
   try {
 
+    /*
+     * First verify the OTP with Cloudflare Worker.
+     */
     await verifyOTP();
 
+
     /*
-     * OTP verification succeeded.
+     * OTP is valid.
      *
-     * Continue to the next registration step.
+     * Now submit the registration details
+     * to Formspree.
+     */
+    mainBtn.textContent = "Creating account...";
+
+    await submitToFormspree();
+
+
+    /*
+     * Both steps succeeded.
+     *
+     * Now continue to the next page.
      */
     window.location.href = "startingwithrigel.html";
 
@@ -1064,7 +1139,6 @@ mainBtn.addEventListener("click", async () => {
     mainBtn.textContent = "Verify & Continue";
 
     otpInput.focus();
-    otpInput.select();
 
   } finally {
 
@@ -1124,9 +1198,6 @@ resendBtn.addEventListener("click", async () => {
 
 otpInput.addEventListener("input", () => {
 
-  /*
-   * Allow numbers only.
-   */
   otpInput.value = otpInput.value
     .replace(/\D/g, "")
     .slice(0, 6);
@@ -1146,7 +1217,6 @@ phoneInput.addEventListener("input", () => {
 
 });
 </script>
-
 </main>
 
 <!---------------------------------------Footer Starts From Here------------------------------------------------>
