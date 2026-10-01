@@ -795,84 +795,354 @@
 
 
 <script>
-const form=document.getElementById("accountForm"),
-      otpBox=document.getElementById("otpBox"),
-      mainBtn=document.getElementById("mainBtn"),
-      resendBtn=document.getElementById("resendBtn"),
-      otp=document.getElementById("otp");
+const API_BASE = "https://rigel-otp.enterprisesrigel.workers.dev";
 
-let otpSent=false,timer;
+const form = document.getElementById("accountForm");
+const otpBox = document.getElementById("otpBox");
+const mainBtn = document.getElementById("mainBtn");
+const resendBtn = document.getElementById("resendBtn");
+const otpInput = document.getElementById("otp");
 
-mainBtn.addEventListener("click",()=>{
+const nameInput = document.getElementById("name");
+const phoneInput = document.getElementById("phone");
+const emailInput = document.getElementById("email");
 
-  if(!form.checkValidity()){
-    form.reportValidity();
-    return;
+let otpSent = false;
+let timer = null;
+let requestInProgress = false;
+
+
+/* ---------------------------------------
+   HELPER: API RESPONSE
+--------------------------------------- */
+
+async function getResponseData(response) {
+
+  let data;
+
+  try {
+    data = await response.json();
+  } catch (error) {
+    throw new Error("The server returned an invalid response.");
   }
 
-  if(!otpSent){
+  if (!response.ok || data.success === false) {
+    throw new Error(
+      data.error || "Something went wrong. Please try again."
+    );
+  }
 
-    /* EMAIL OTP WILL BE SENT HERE */
+  return data;
+}
 
-    otpBox.classList.add("show");
-    mainBtn.textContent="Verify & Continue";
-    mainBtn.classList.add("verify");
-    otpSent=true;
 
-    startTimer();
-    otp.focus();
+/* ---------------------------------------
+   SEND OTP
+--------------------------------------- */
 
-  }else{
+async function sendOTP() {
 
-    if(otp.value.length!==6){
-      alert("Please enter the 6-digit verification code.");
-      otp.focus();
+  const email = emailInput.value.trim().toLowerCase();
+
+  if (!email) {
+    throw new Error("Please enter your email address.");
+  }
+
+  const response = await fetch(`${API_BASE}/send-otp`, {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/json"
+    },
+
+    body: JSON.stringify({
+      email: email
+    })
+  });
+
+  return await getResponseData(response);
+}
+
+
+/* ---------------------------------------
+   VERIFY OTP
+--------------------------------------- */
+
+async function verifyOTP() {
+
+  const email = emailInput.value.trim().toLowerCase();
+  const code = otpInput.value.trim();
+
+  if (!email) {
+    throw new Error("Email address is missing.");
+  }
+
+  if (!/^\d{6}$/.test(code)) {
+    throw new Error("Please enter the 6-digit verification code.");
+  }
+
+  const response = await fetch(`${API_BASE}/verify-otp`, {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/json"
+    },
+
+    body: JSON.stringify({
+      email: email,
+      otp: code
+    })
+  });
+
+  return await getResponseData(response);
+}
+
+
+/* ---------------------------------------
+   START OTP TIMER
+--------------------------------------- */
+
+function startTimer() {
+
+  let seconds = 60;
+
+  resendBtn.disabled = true;
+  resendBtn.textContent = `Resend OTP (${seconds}s)`;
+
+  clearInterval(timer);
+
+  timer = setInterval(() => {
+
+    seconds--;
+
+    if (seconds <= 0) {
+
+      clearInterval(timer);
+
+      resendBtn.disabled = false;
+      resendBtn.textContent = "Resend OTP";
+
       return;
     }
 
-    /* OTP WILL BE VERIFIED HERE */
+    resendBtn.textContent = `Resend OTP (${seconds}s)`;
 
-    window.location.href="create-profile.html";
+  }, 1000);
+}
+
+
+/* ---------------------------------------
+   SET BUTTON LOADING STATE
+--------------------------------------- */
+
+function setLoading(button, loading, loadingText) {
+
+  if (loading) {
+
+    button.disabled = true;
+    button.dataset.originalText = button.textContent;
+    button.textContent = loadingText;
+
+  } else {
+
+    button.disabled = false;
+
+    if (button.dataset.originalText) {
+      button.textContent = button.dataset.originalText;
+    }
+  }
+}
+
+
+/* ---------------------------------------
+   MAIN BUTTON
+--------------------------------------- */
+
+mainBtn.addEventListener("click", async () => {
+
+  if (requestInProgress) {
+    return;
+  }
+
+
+  /* -----------------------------------
+     STEP 1: SEND OTP
+  ----------------------------------- */
+
+  if (!otpSent) {
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    requestInProgress = true;
+
+    setLoading(
+      mainBtn,
+      true,
+      "Sending verification code..."
+    );
+
+    try {
+
+      await sendOTP();
+
+      otpSent = true;
+
+      otpBox.classList.add("show");
+
+      mainBtn.textContent = "Verify & Continue";
+      mainBtn.classList.add("verify");
+      mainBtn.disabled = false;
+
+      /*
+       * Prevent the user from changing the email
+       * after the OTP has been sent.
+       */
+      emailInput.readOnly = true;
+
+      startTimer();
+
+      otpInput.focus();
+
+    } catch (error) {
+
+      alert(error.message);
+
+      mainBtn.disabled = false;
+
+    } finally {
+
+      requestInProgress = false;
+
+    }
+
+    return;
+  }
+
+
+  /* -----------------------------------
+     STEP 2: VERIFY OTP
+  ----------------------------------- */
+
+  const code = otpInput.value.trim();
+
+  if (!/^\d{6}$/.test(code)) {
+
+    alert("Please enter the 6-digit verification code.");
+
+    otpInput.focus();
+
+    return;
+  }
+
+  requestInProgress = true;
+
+  setLoading(
+    mainBtn,
+    true,
+    "Verifying..."
+  );
+
+  try {
+
+    await verifyOTP();
+
+    /*
+     * OTP verification succeeded.
+     *
+     * Continue to the next registration step.
+     */
+    window.location.href = "startingwithrigel.html";
+
+  } catch (error) {
+
+    alert(error.message);
+
+    mainBtn.disabled = false;
+    mainBtn.textContent = "Verify & Continue";
+
+    otpInput.focus();
+    otpInput.select();
+
+  } finally {
+
+    requestInProgress = false;
 
   }
 
 });
 
 
-function startTimer(){
+/* ---------------------------------------
+   RESEND OTP
+--------------------------------------- */
 
-  let seconds=60;
+resendBtn.addEventListener("click", async () => {
 
-  resendBtn.disabled=true;
-  resendBtn.textContent=`Resend OTP (${seconds}s)`;
+  if (resendBtn.disabled || requestInProgress) {
+    return;
+  }
 
-  clearInterval(timer);
+  requestInProgress = true;
 
-  timer=setInterval(()=>{
+  setLoading(
+    resendBtn,
+    true,
+    "Sending..."
+  );
 
-    seconds--;
+  try {
 
-    resendBtn.textContent=`Resend OTP (${seconds}s)`;
+    await sendOTP();
 
-    if(seconds<=0){
+    startTimer();
 
-      clearInterval(timer);
+    otpInput.value = "";
+    otpInput.focus();
 
-      resendBtn.disabled=false;
-      resendBtn.textContent="Resend OTP";
+  } catch (error) {
 
-    }
+    alert(error.message);
 
-  },1000);
+    resendBtn.disabled = false;
+    resendBtn.textContent = "Resend OTP";
 
-}
+  } finally {
+
+    requestInProgress = false;
+
+  }
+
+});
 
 
-resendBtn.addEventListener("click",()=>{
+/* ---------------------------------------
+   OTP INPUT
+--------------------------------------- */
 
-  /* SEND EMAIL OTP AGAIN HERE */
+otpInput.addEventListener("input", () => {
 
-  startTimer();
+  /*
+   * Allow numbers only.
+   */
+  otpInput.value = otpInput.value
+    .replace(/\D/g, "")
+    .slice(0, 6);
+
+});
+
+
+/* ---------------------------------------
+   PHONE INPUT
+--------------------------------------- */
+
+phoneInput.addEventListener("input", () => {
+
+  phoneInput.value = phoneInput.value
+    .replace(/\D/g, "")
+    .slice(0, 10);
 
 });
 </script>
