@@ -1388,34 +1388,44 @@
 </section>
 
 
+```html
 <script>
 
-const profileForm=document.getElementById("profileForm");
-const gstYes=document.getElementById("gstYes");
-const gstNumberBox=document.getElementById("gstNumberBox");
-const gstNumber=document.getElementById("gstNumber");
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xeaodbaa";
 
-const socialYes=document.getElementById("socialYes");
-const socialMaybe=document.getElementById("socialMaybe");
-const socialBox=document.getElementById("socialBox");
+const profileForm = document.getElementById("profileForm");
+
+const gstYes = document.getElementById("gstYes");
+const gstNumberBox = document.getElementById("gstNumberBox");
+const gstNumber = document.getElementById("gstNumber");
+
+const socialYes = document.getElementById("socialYes");
+const socialMaybe = document.getElementById("socialMaybe");
+const socialBox = document.getElementById("socialBox");
+
+const submitButton = profileForm.querySelector(".submit-btn");
+
+let submitting = false;
 
 
-/* GST */
+/* ---------------------------------------
+   GST
+--------------------------------------- */
 
-document.querySelectorAll('input[name="gst"]').forEach(el=>{
+document.querySelectorAll('input[name="gst"]').forEach(el => {
 
-  el.addEventListener("change",()=>{
+  el.addEventListener("change", () => {
 
-    if(gstYes.checked){
+    if (gstYes.checked) {
 
       gstNumberBox.classList.remove("hidden");
-      gstNumber.required=true;
+      gstNumber.required = true;
 
-    }else{
+    } else {
 
       gstNumberBox.classList.add("hidden");
-      gstNumber.required=false;
-      gstNumber.value="";
+      gstNumber.required = false;
+      gstNumber.value = "";
 
     }
 
@@ -1424,19 +1434,24 @@ document.querySelectorAll('input[name="gst"]').forEach(el=>{
 });
 
 
-/* SOCIAL SELLING */
+/* ---------------------------------------
+   SOCIAL SELLING
+--------------------------------------- */
 
-document.querySelectorAll('input[name="socialSelling"]').forEach(el=>{
+document.querySelectorAll('input[name="socialSelling"]').forEach(el => {
 
-  el.addEventListener("change",()=>{
+  el.addEventListener("change", () => {
 
-    if(socialYes.checked || socialMaybe.checked){
+    if (socialYes.checked || socialMaybe.checked) {
 
       socialBox.classList.remove("hidden");
 
-    }else{
+    } else {
 
       socialBox.classList.add("hidden");
+
+      document.getElementById("instagram").value = "";
+      document.getElementById("facebook").value = "";
 
     }
 
@@ -1445,31 +1460,152 @@ document.querySelectorAll('input[name="socialSelling"]').forEach(el=>{
 });
 
 
-/* FORM */
+/* ---------------------------------------
+   FORM SUBMISSION
+--------------------------------------- */
 
-profileForm.addEventListener("submit",e=>{
+profileForm.addEventListener("submit", async e => {
 
   e.preventDefault();
 
-  if(!profileForm.checkValidity()){
-
-    profileForm.reportValidity();
+  if (submitting) {
     return;
-
   }
 
-  /*
-    SAVE PROFILE DATA HERE.
 
-    AFTER SUCCESS:
-    window.location.href="plans.html";
-  */
+  /* -----------------------------------
+     VALIDATE FORM
+  ----------------------------------- */
 
-  window.location.href="plans.html";
+  if (!profileForm.checkValidity()) {
+
+    profileForm.reportValidity();
+
+    return;
+  }
+
+
+  submitting = true;
+
+  const originalButtonText = submitButton.textContent;
+
+  submitButton.disabled = true;
+  submitButton.textContent = "Saving Your Profile...";
+
+
+  try {
+
+    /*
+     * FormData automatically collects:
+     *
+     * - Text fields
+     * - Select fields
+     * - Radio selections
+     * - Checked checkboxes
+     *
+     * Unchecked checkboxes are naturally omitted.
+     */
+    const formData = new FormData(profileForm);
+
+
+    /* -----------------------------------
+       ADD FORM IDENTIFICATION
+    ----------------------------------- */
+
+    formData.append(
+      "_subject",
+      "New Rigel Seller Profile"
+    );
+
+    formData.append(
+      "source",
+      "Rigel Seller Profile Page"
+    );
+
+
+    /* -----------------------------------
+       SUBMIT TO FORMSPREE
+    ----------------------------------- */
+
+    const response = await fetch(FORMSPREE_ENDPOINT, {
+
+      method: "POST",
+
+      headers: {
+        "Accept": "application/json"
+      },
+
+      body: formData
+
+    });
+
+
+    /* -----------------------------------
+       HANDLE RESPONSE
+    ----------------------------------- */
+
+    let data = {};
+
+    try {
+
+      data = await response.json();
+
+    } catch (error) {
+
+      /*
+       * If Formspree returns a successful
+       * response without JSON, that's okay.
+       */
+
+    }
+
+
+    if (!response.ok) {
+
+      if (data.errors && data.errors.length) {
+
+        throw new Error(
+          data.errors
+            .map(error => error.message)
+            .join(", ")
+        );
+
+      }
+
+      throw new Error(
+        "We could not save your seller profile. Please try again."
+      );
+
+    }
+
+
+    /* -----------------------------------
+       SUCCESS
+    ----------------------------------- */
+
+    window.location.href = "dropshippingplans.html";
+
+
+  } catch (error) {
+
+    console.error("Profile submission error:", error);
+
+    alert(
+      error.message ||
+      "Something went wrong while saving your profile. Please try again."
+    );
+
+    submitButton.disabled = false;
+    submitButton.textContent = originalButtonText;
+
+    submitting = false;
+
+  }
 
 });
 
 </script>
+```
 
 </main>
 
