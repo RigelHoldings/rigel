@@ -645,14 +645,16 @@
 
         </ul>
 
-        <button
-          type="button"
-          class="plan-btn"
-          data-plan="Free"
-        >
-          Choose Free
-        </button>
-
+<!-- FREE -->
+<button
+  type="button"
+  class="plan-btn"
+  data-plan="Free"
+  data-payment-link="https://www.rigelenterprises.in/starter.html"
+>
+  Choose Free
+</button>
+	
       </div>
 
 
@@ -681,20 +683,20 @@
         <ul class="features">
 
           <li>
-            Access to our whole inventory
-          </li>
+          Full Inventory Access
+	  </li>
 
           <li>
-            We will list the products
-          </li>
+          Products Listed
+	  </li>
 
           <li>
-            We will promote the products
-          </li>
+          Products Promoted
+	  </li>
 
           <li>
-            Packaging cost included
-          </li>
+          Packaging Included
+	  </li>
 
         </ul>
 
@@ -702,14 +704,15 @@
           ✓ <strong>30 Days</strong> Money Back Guarantee
         </div>
 
-        <button
-          type="button"
-          class="plan-btn"
-          data-plan="Silver"
-        >
-          Choose Silver
-        </button>
-
+<!-- SILVER -->
+<button
+  type="button"
+  class="plan-btn"
+  data-plan="Silver"
+  data-payment-link="https://www.rigelenterprises.in/silver.html"
+>
+  Choose Silver
+</button>
       </div>
 
 
@@ -742,24 +745,24 @@
         <ul class="features">
 
           <li>
-            Access to our whole inventory
-          </li>
+          Full Inventory Access
+	  </li>
 
           <li>
-            We will register the seller account
-          </li>
+          Seller Account Registered
+	  </li>
 
           <li>
-            We will list the products
-          </li>
+          Products Listed
+	  </li>
 
           <li>
-            We will promote the products
-          </li>
+          Products Promoted
+	  </li>
 
           <li>
-            Packaging cost included
-          </li>
+          Packaging Included
+	  </li>
 
         </ul>
 
@@ -767,14 +770,15 @@
           ✓ <strong>30 Days</strong> Money Back Guarantee
         </div>
 
-        <button
-          type="button"
-          class="plan-btn"
-          data-plan="Gold"
-        >
-          Choose Gold
-        </button>
-
+<!-- GOLD -->
+<button
+  type="button"
+  class="plan-btn"
+  data-plan="Gold"
+  data-payment-link="https://www.rigelenterprises.in/gold.html"
+>
+  Choose Gold
+</button>
       </div>
 
 
@@ -803,28 +807,29 @@
         <ul class="features">
 
           <li>
-            Access to our whole inventory
-          </li>
+          Full Inventory Access
+	  </li>
 
           <li>
-            We will register the GST
-          </li>
+          GST Registration Completed
+	  </li>
 
           <li>
-            We will register the seller account
-          </li>
+          Seller Account Registered
+	  </li>
 
           <li>
-            We will list the products
-          </li>
+          Products Listed
+	  </li>
 
           <li>
-            We will promote the products
-          </li>
+          Products Promoted
+	  </li>
 
           <li>
-            Packaging cost included
-          </li>
+          Packaging Included
+	  </li>
+
 
         </ul>
 
@@ -832,14 +837,15 @@
           ✓ <strong>30 Days</strong> Money Back Guarantee
         </div>
 
-        <button
-          type="button"
-          class="plan-btn"
-          data-plan="Platinum"
-        >
-          Choose Platinum
-        </button>
-
+<!-- PLATINUM -->
+<button
+  type="button"
+  class="plan-btn"
+  data-plan="Platinum"
+  data-payment-link="https://www.rigelenterprises.in/platinum.html"
+>
+  Choose Platinum
+</button>
       </div>
 
 
@@ -868,32 +874,32 @@
         <ul class="features">
 
           <li>
-            Access to our whole inventory
-          </li>
+          Full Inventory Access
+	  </li>
 
           <li>
-            We will provide address for GST
-          </li>
+          GST Address Provided
+	  </li>
 
           <li>
-            We will register the GST
-          </li>
+          GST Registration Completed
+	  </li>
 
           <li>
-            We will register the seller account
-          </li>
+          Seller Account Registered
+	  </li>
 
           <li>
-            We will list the products
-          </li>
+          Products Listed
+	  </li>
 
           <li>
-            We will promote the products
-          </li>
+          Products Promoted
+	  </li>
 
           <li>
-            Packaging cost included
-          </li>
+          Packaging Included
+	  </li>
 
         </ul>
 
@@ -901,14 +907,15 @@
           ✓ <strong>30 Days</strong> Money Back Guarantee
         </div>
 
-        <button
-          type="button"
-          class="plan-btn"
-          data-plan="Platinum Prime"
-        >
-          Choose Platinum Prime
-        </button>
-
+<!-- PLATINUM PRIME -->
+<button
+  type="button"
+  class="plan-btn"
+  data-plan="Platinum Prime"
+  data-payment-link="https://www.rigelenterprises.in/prime.html"
+>
+  Choose Platinum Prime
+</button>
       </div>
 
 
@@ -927,34 +934,31 @@
 
 <script>
 
-document.querySelectorAll(".plan-btn").forEach(button=>{
+document.querySelectorAll(".plan-btn").forEach(button => {
 
-  button.addEventListener("click",()=>{
+  button.addEventListener("click", () => {
 
-    const plan=button.dataset.plan;
+    const plan = button.dataset.plan;
+    const paymentLink = button.dataset.paymentLink;
 
-    /*
-      SAVE SELECTED PLAN
+    // Save selected plan
+    localStorage.setItem("rigelPlan", plan);
 
-      This will later be connected to the
-      seller's account/profile data.
+    // Make sure a payment link exists
+    if (!paymentLink) {
+      alert("Payment page is not available for this plan.");
+      return;
+    }
 
-      Example:
-
-      localStorage.setItem("rigelPlan",plan);
-
-      Then continue to Page 5:
-    */
-
-    localStorage.setItem("rigelPlan",plan);
-
-    window.location.href="payment.html";
+    // Go to the selected plan page
+    window.location.href = paymentLink;
 
   });
 
 });
 
 </script>
+	
 
 </main>
 <!---------------------------------------Footer Starts From Here------------------------------------------------>
